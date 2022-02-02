@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A03 List</title>
+</head>
+<body>
+    <h1>List</h1>
+
+    <p>
+        목록을 작성할 목적으로 사용한다.<br>
+        EX] 목차
+    </p>
+
+    <h3>순서가 있는 목록 만들기, 1, A, a, I, i</h3>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+
+    <h3>표시 문자 1, 2 를 변경</h3>
+    <ol type="I">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+
+    <hr color="orange">
+
+    <h3>순서가 없는 목록 만들기</h3>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <hr color="orange">
+
+    <h3>표시 마크 변경. square: 사각형, disk: 원형, circle: 빈 원형</h3>
+    <ul type="circle">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <hr color="orange">
+
+    <h3>소 목록 작성</h3>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <ol type="A">
+            <li>jQuery</li>
+            <li>React</li>
+            <li>Vue</li>
+        </ol>
+        <li>Java</li>
+    </ol>
+
+    <hr color="orange">
+
+    <h3>설명형 리스트</h3>
+    <dl> <!-- 리스트의 시작만 알림.-->
+        <dt><b>HTML</b></dt> <!-- 머릿말 -->
+        <dd>
+            문서 공유를 목적으로 만들어짐.<br>
+            개행이 가능
+        </dd> <!-- 위 dt에 대한 설명-->
+
+        <dt><b>HTML</b></dt>
+        <dd>
+            문서 공유를 목적으로 만들어짐.<br>
+            개행이 가능
+        </dd>
+    </dl>
+
+</body>
+</html>

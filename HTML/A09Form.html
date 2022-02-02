@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Form</h1>
+
+    <p>사용자로부터 어떠한 값을 받을 목적으로 기술
+        전달될 데이터는 form 태그에 포함되어야 한다.<br>
+        GET: 256Byte - 4000Byte 이내의 크기의 데이터만 전송 가능.<br>
+        주소줄에 address?key=value&key=value... <br>
+        
+        POST: 크기 상관없음.<br>
+        body 처음에 붙어서 넘어간다. (내용을 볼 수 없음)
+    </p>
+
+    <form method="post" action="Result.jsp">
+        <fieldset>
+            <legend>상품 주문</legend>
+            <label>상품: 
+            	<input type="text" name="product" maxlength="10" placeholder="상품 목록을 입력해 주세요"></label>
+            <br>
+            <label for="qty">수량: </label>
+            <input type="number" id="qty" name="qty" min="0" max="10" step="2">
+        </fieldset>
+
+        <fieldset>
+        	size는 필드의 크기(입력할 수 있는 칸의 크기)<br>
+        	maxlength 정의한 필드에 입력할 수 있는 최대 값. 10이면 10자만 입력 가능. size가 20이면 크기는 20자 입력이 가능한데
+        	입력 할 수 있는 최대 값은 10자만 입력 가능<br>
+        	required: 값이 반드시 입력되어야 한다<br>
+        	readonly: 읽기 전용. 사용자가 값을 입력할 수 없음.<br>
+        	disable: 사용하지 않음. 사용자가 값을 입력할 수 없음. 지정한 action에 값을 전달하지 않음<br>
+            <legend>주문한 사람</legend>
+            <label>이름: <input type="text" name="name" size="50" required></label><br>
+            <label>주소: <input type="text" name="address" size="70" value="서울시" readonly></label><br>
+            <label>이메일: <input type="email" name="email" size="70" value="abc@abc.com" disabled></label><br>
+            <br>
+            이 히든 필드는 화면에 표시되지 않음.<br>
+            사용자는 모르게 서버에 어떠한 값을 전송할 목적으로 사용한다.<br>
+            <input type="hidden" name="mail" value="abc@abc.com">
+            
+            <label>패스워드: <input type="password" name="pw" size="10"></label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>배송지</legend>
+            <label>배송일자: <input type="date" name="pw" size="10" value="2022-12-25"></label><br>
+            <label>배송일자: <input type="time" name="pw" size="10" value="14:25:30"></label><br>
+            
+            <label>month, week: <input type="week" name="pw" size="10"></label><br>
+            
+            <label>단일 선택: <br>
+            	name이 동일한 요소 중 1개만 선택된다. name 값이 틀리면 다중 선택이 된다<br>
+            	value 속성이 있어야 그 값이 name 변수에 붙어 넘어간다<br>
+            	<input type="radio" name="language" value="Java">자바<br>
+            	<input type="radio" name="language" value="JavaScript" checked>자바스크립트<br>
+            	<input type="radio" name="language" value="React">리엑트<br>
+            </label>
+            
+            <label>다중 선택: <br>
+            	name이 동일한 요소 중 여러개가 선택된다. name은 Java에서는 같은 이름의 배열로 넘어간다<br>
+            	value 속성이 있어야 그 값이 name 변수에 붙어 넘어간다<br>
+            	<input type="checkbox" name="baseball" value="KT" checked>KT<br>
+            	<input type="checkbox" name="baseball" value="두산">두산<br>
+            	<input type="checkbox" name="baseball" value="엘지" checked>엘지<br>
+            	<input type="checkbox" name="baseball" value="삼성">삼성<br>
+            	<input type="checkbox" name="baseball" value="기아">기아<br>
+            	<input type="checkbox" name="baseball" value="한화">한화<br>
+            </label>
+            <br>
+            <br>
+            <label>오늘 수업의 소감은. rows가 줄의 수, cols가 한줄에 입력 가능한 글자 수<br>
+            	<textarea name="commant" rows="10" cols="100"></textarea>
+            </label>
+            <br>
+            <br>
+            radio, checkbox를 하나 묶은 형태(공간을 적게 차지한다)<br>
+            select value 속성이 없으면 option에 적은 문자열이 전송된다<br>
+            <label>하나만 선택 가능<br>
+            	<select name="lang">
+            		<option value="자바">Java</option>
+            		<option value="자바스크립트" selected>JavaScript</option>
+            		<option value="리엑트">React</option>
+            		<option value="뷰">Vue</option>
+            		<option value="제이쿼리">jQuery</option>
+            	</select>
+            </label>
+            <br>
+            <br>
+            <label>다중 선택 가능<br>
+            	<select name="multi" multiple size="5">
+            		<option value="자바">Java</option>
+            		<option value="자바스크립트" selected>JavaScript</option>
+            		<option value="리엑트">React</option>
+            		<option value="뷰" selected>Vue</option>
+            		<option value="제이쿼리">jQuery</option>
+            	</select>
+            </label>
+            <br>
+            <br>
+            <label>파일 전송<br>
+            	<input type="file" name="upload">
+            </label>
+        </fieldset>
+
+        <button type="submit">SEND</button>
+        <button type="reset">CANCEL</button>
+    </form>
+</body>
+</html>

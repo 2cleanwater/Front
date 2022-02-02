@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <h1>Table</h1>
+
+    <table width="800px" border="1px" align="center">
+        <!-- 일괄 적용 -->
+        <colgroup>
+            <col width="100px" style="background-color: lightgray;">
+            <col width="100px">
+            <col width="600px">
+        </colgroup>
+        <thead>
+            <tr>
+                <th style="background-color: white;">No</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr style="background-color: red;">
+                <td>1</td>
+                <td>NolBu</td>
+                <td>Seoul</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HungBu</td>
+                <td>Seoul</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>2</td>
+                <td colspan="2">SEND</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
