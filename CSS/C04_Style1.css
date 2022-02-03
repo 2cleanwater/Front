@@ -1,0 +1,7 @@
+/* C04_Style1.css */
+@charset "UTF-8";
+
+* { color: gray; }
+h3 {
+    color: orange;
+}
