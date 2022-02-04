@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--
+	  width=device-width or size 지정: 		width값 지정
+	  height=device-height or size 지정:	height값 지정
+	  use-scalable=yes(1) or no(0):			크기 조절 가능 여부(default yes)
+	  initial-scale=1.0. 1 ~ 10				초기화면 사이즈 값. 기본 1
+  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media</title>
 
-  <style type="text/css">
+  <!--
+	  all: 모든 기기에서 적용
+	  screen: 데탑, 모바일, 테블릿 등
+	  tv: 화면과 영상이 동시에 지원되는 플렛폼
+	  print: 인쇄
+  -->
+  <style type="text/css" media="screen and (min-width: 360px) and (max-width: 800px)">
     body { background-color: lightgray; }
   </style>
 </head>
