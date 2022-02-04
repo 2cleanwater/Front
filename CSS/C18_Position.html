@@ -15,7 +15,7 @@
 		}
 
 		/*
-		absolute: 상위 요소가 position을 가지고 있으면 상위 요소의 좌, 상단 기준으로 배치가 된다.
+		absolute: 상위 요소(거슬러 올라가서 체크)가 position: relative을 가지고 있으면 상위 요소의 좌, 상단 기준으로 배치가 된다.
 		상위 요소가 position을 가지고 있지 않으면 브라우저 좌, 상단을 기준으로 배치된다
 		*/
 		#wrapper .one { width:300px; height:150px; background-color:#FFFF99; float:left;
@@ -35,7 +35,10 @@
 		#wrapper .three { width:300px; height:150px; background-color:#CCFFFF; float:left;
 			position: fixed; left: 200px; bottom: 10px;
 		}
-		#wrapper .four { width:300px; height:150px; background-color:#99FFFF; float:left;}
+		#wrapper .four { width:300px; height:150px; 
+			background-color:#99FFFF; float:left;
+			
+		}
 		
 		#wrapper:after { content:""; clear:both; display:block;}
 	</style>

@@ -10,7 +10,8 @@
 		
     /*  border-collapse: collapse => 1줄, separate => 2줄 */
     .table-one { width: 750px;  caption-side: bottom;
-      border: 1px solid gray; border-collapse: separate; border-spacing: 10px;
+      border: 1px solid gray; 
+      border-collapse: separate; border-spacing: 10px;
     }
     .table-one th, .table-one td {border: 1px solid gray; }
 
@@ -18,7 +19,10 @@
     .table-two { width: 750px;  caption-side: bottom;
       border: 1px solid gray; border-collapse: collapse;
     }
-    .table-two th, .table-two td {border: 1px solid gray; }
+    .table-two th, .table-two td {
+      border: 1px solid gray; 
+      padding: 5px;
+    }
     /* .table-two td:first-child { background-color: lightgray; color: white; } */
     .table-two td:nth-child(1) { background-color: lightgray; color: white; }
 
