@@ -19,7 +19,7 @@
 			padding: 5px;
 		}
 
-		input[name ^= "p"] {						/* ^= 시작 일치 */
+		input[name ^= "p"] {					/* ^= 시작 일치 */
 			border: 1px solid orange;
 			padding: 5px;
 		}
@@ -28,13 +28,19 @@
 			color: orange;
 		}
 
-		span[data *= "a"] {						/* $= 포함 */
+		span[data *= "a"] {						/* *= 포함 */
 			color: green;
 		}
 
-		span[data |= "ko"] {						/* !=  ko와 ko- 둘 다 매칭된다 */
+		span[data |= "ko"] {		/* |=  ko와 ko- 둘 다 매칭된다 */
 			color: lightblue;
 		}
+
+		/* ! => 키보드1번 |는 엔터키 위에 w 표시 
+			abc, abc_def, abc-eaf중에서
+			"abc" 또는 "abc-"로 시작되는 값을 찾고자 할 경우 |=
+			=는 완벽 일치. "abc"로 지정하면 "abc" 하나만 적용됨
+		*/
 
 	</style>
 </head>

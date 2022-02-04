@@ -10,6 +10,53 @@
 		body { font-size: 12pt; line-height: 1.5em; color: gray; }
 		em { font-style:normal; }
 		h1, h2, h3, h4, h5, h6 { line-height:1.5em; }
+
+		/* 가상 클래스 
+			:link => 사이트 방문 전 링크 요소에 적용
+			:visited => 사이트 방문 후 링크 요소에 적용
+			:hover => 링크 위에 마우스 커서가 있는 경우
+			:active => 링크를 클릭하고 있는 경우
+		*/
+		a:link { text-decoration: none; color: rgb(19, 22, 190); }
+		a:visited { color:rgb(77, 2, 121); }
+		a:hover { text-decoration: underline; color: orange; }
+		a:active { color: red; }
+
+		#web a { text-decoration: none; color: lightblue; }
+		#web a:hover { text-decoration: underline; color: olivedrab; }
+
+		nav ul {
+			list-style: none; padding: 0;
+		}
+		/* float를 사용했으므로 ul 아래에 배치된 요소의 흐름을 정상 흐름으로 복구 */
+		nav ul::after {			
+			display: block; content: ""; clear: both;
+		}
+
+		/* .hello { clear: both; } */
+
+		nav ul > li {
+			float: left;
+			width: 150px;
+			/* border: 1px solid orange; */
+		}
+
+		/* a tab는 inline 요소 width / height 등이 적용되지 않는다 */
+		nav .js > li > a:link, nav .js > li > a:visited {
+			display: block;
+			text-align: center;		/* inline이라 중앙 정렬이 안됨. 위에 display 할당 */
+
+			font-size: 14pt;
+			text-decoration: none;
+			font-weight: bold;
+			color: black;
+			padding: 10px;
+		}
+
+		nav .js > li > a:hover {
+			background-color: gray;
+			color: white;
+		}
 	</style>
 </head>
 <body>
@@ -28,7 +75,7 @@
 		</div>
 		
 		<div id="web">
-			<h3><a href="http://www.wah.or.kr/index.asp">웹 접근성</a></h3>
+			<h3><a href="http://daum.net">웹 접근성</a></h3>
 			<p>월드 와이드 웹 (World Wide Web)을 창시한 <em>팀 버너스 리(Tim Berners-Lee)</em>는 웹이란 '장애에 구애 없이 
 			모든 사람들이 손쉽게 정보를 공유할 수 있는 공간'이라고 정의하였으며, 웹 콘텐츠를 제작할 때에는 장애에 구애됨이 없이 
 			누구나 접근할 수 있도록 제작하여야 한다고 하였다. 이렇듯 웹 창시자가 웹의 기본적 철학에서 웹 접근성 부문을 강조함에도 불구하고, 
@@ -37,7 +84,7 @@
 		</div>
 
 		<nav>
-			<ul>
+			<ul class="js">
 				<li><a href="">HTML</a></li>
 				<li><a href="">CSS</a></li>
 				<li><a href="">JavaScript</a></li>
@@ -45,6 +92,8 @@
 				<li><a href="">React</a></li>
 			</ul>
 		</nav>
+
+		<div class="hello">Hello World</div>
 	</div>
 	
 	</body>
