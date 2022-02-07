@@ -23,7 +23,8 @@
             </div>
         </div>
 
-        <div class="row border">
+        <div class="row">
+            <!-- 좌측 메뉴 시작 -->
             <div class="col-3">
                 <ul class="list-group">
                     <li class="list-group-item">An item</li>
@@ -33,6 +34,9 @@
                     <li class="list-group-item">And a fifth one</li>
                   </ul>
             </div>
+            <!-- 좌측 컬럼 종료 -->
+
+            <!-- 우측 컬럼 시작 -->
             <div class="col-9">
                 <div class="column">
                     <div>
@@ -45,12 +49,75 @@
                         </nav>
                     </div>
                     <div>
-                        World
+                        <button class="btn">Button 01</button>
+                        <button class="btn btn-primary">Button 01</button>
+                        <button class="btn btn-outline-primary">Button 01</button>
+                        <button class="btn btn-primary btn-sm">Button 01</button>
+                        <button type="button" class="btn btn-link" 
+                            onclick="location.assign('http://www.daum.net')">Link</button>
+                    </div>
+
+                    <div class="btn-group" >
+                        <button type="button" class="btn btn-primary">Left</button>
+                        <button type="button" class="btn btn-primary">Middle</button>
+                        <button type="button" class="btn btn-primary">Right</button>
+                    </div>
+
+                    <!-- ROW로 변경-->
+                    <div class="row mt-3">
+                        <div class="card" style="width: 15rem;">
+                            <img src="./images/cup-1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">이쁜컵 1</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                          </div>
+                          <div class="card" style="width: 15rem;">
+                            <img src="./images/cup-2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                          <div class="card" style="width: 15rem;">
+                            <img src="./images/cup-3.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>
+            <!-- 우측 컬럼 종료-->
+
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./images/cup-1.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./images/cup-2.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./images/cup-3.jpg" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </div>
         
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>
