@@ -16,61 +16,46 @@
     <h3>Form</h3>
 
     <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">이름: </label>
+      <div class="mb-3 input-group">
+        <label for="name" class="input-group-text">이름</label>
         <input type="text" id="name" class="form-control">
       </div>
       
-      <div class="mb-3">
-        <label for="id" class="form-label">아이디: </label>
+      <div class="mb-3 input-group">
         <input type="text" id="id" class="form-control">
+        <label for="id" class="input-group-text">아이디</label>
       </div>
 
-      <div class="mb-3">
-        <label for="pw" class="form-label">패스워드: </label>
-        <!-- 
-          보통 크기 class="form-control"
-          작게      class="form-control form-control-sm"
-          크게      class="form-control form-control-lg"
-        -->
+      <label for="pw" class="form-label">패스워드: </label>
+      <div class="mb-3 input-group">
+        <span class="input-group-text">PW</span>
         <input type="password" id="pw" class="form-control form-control-sm">
       </div>
       
-      <div class="mb-3">
-        <label for="email" class="form-label">E-Mail: </label>
-        <!-- disabled와 readonly는 태그 속성을 그대로 이용 -->
+      <div class="mb-3 input-group">
+        <label for="email" class="input-group-text">E-Mail</label>
         <input type="text" id="email" class="form-control" value="ABC" readonly>
+        <label for="email" class="input-group-text">E-Mail</label>
       </div>
 
-      <div class="mb-3 row">
-        <label for="url" class="form-label col-1">URL: </label>
-        <div class="col-11">
-          <input type="text" id="url" value="http://www.daum.net" class="form-control">
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <label for="url" class="form-label col-1">URL: </label>
-        <div class="col-5">
-          <input type="text" id="url" class="form-control">
-        </div>
-        <label for="url" class="form-label col-1">URL: </label>
-        <div class="col-5">
-          <input type="text" id="url" class="form-control">
-        </div>
+      <div class="mb-3 input-group">
+        <input type="text" id="url" placeholder="아이디" class="form-control">
+        <label for="url" class="input-group-text">@</label>
+        <input type="text" id="url" placeholder="회사명" class="form-control">
       </div>
 
-      <div class="mb-3">
-        <label class="form-label">파일 선택</label>
+      <div class="mb-3 input-group input-group-sm">
+        <label class="input-group-text">File</label>
         <input type="file" class="form-control">
       </div>
 
-      <div class="mb-3">
-        <label for="date" class="form-label">날짜: </label>
+      <div class="mb-3 input-group input-group-lg">
+        <label for="date" class="input-group-text">날짜: </label>
         <input type="date" id="date" class="form-control">
       </div>
       
-      <div class="mb-3">
-        <label for="color" class="form-label">색상: </label>
+      <div class="mb-3 input-group">
+        <label for="color" class="input-group-text">색상: </label>
         <input type="color" id="color" value="#FF00FF" class="form-control form-control-color">
       </div>
       
