@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A07 Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+  
+  <div class="card-body">
+    <h3>Form</h3>
+
+    <form>
+      <div>
+        <label for="name">이름: </label>
+        <input type="text" id="name">
+      </div>
+      
+      <div>
+        <label for="id">아이디: </label>
+        <input type="text" id="id">
+      </div>
+
+      <div>
+        <label for="pw">패스워드: </label>
+        <input type="password" id="pw">
+      </div>
+      
+      <div class="mb-3">
+        <label for="email">E-Mail: </label>
+        <input type="text" id="email">
+      </div>
+
+      <div class="mb-3">
+        <label for="url">URL: </label>
+        <div>
+          <input type="text" id="url" value="http://www.daum.net">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="url">URL: </label>
+        <div>
+          <input type="text" id="url">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>파일 선택</label>
+        <input type="file">
+      </div>
+
+      <div class="mb-3">
+        <label for="date">날짜: </label>
+        <input type="date" id="date">
+      </div>
+      
+      <div class="mb-3">
+        <label for="color">색상: </label>
+        <input type="color" id="color" value="#FF00FF">
+      </div>
+      
+
+      <div class="mb-3">
+        <label for="commend">Comment: </label>
+        <textarea cols="50" rows="5" name="comment" id="commend"></textarea>
+      </div>
+      
+      <div class="mb-3">
+        <label>선택해 주세요</label>
+        <select>
+          <option value="두산">두산</option>
+          <option value="NC">NC</option>
+          <option value="Samsung" selected>Samsung</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label>선택해 주세요</label>
+        <select>
+          <option value="두산">두산</option>
+          <option value="NC">NC</option>
+          <option value="Samsung" selected>Samsung</option>
+        </select>
+      </div>
+
+      <div class="mb-1">야구팀</div>
+      <div>
+        <input type="checkbox" id="kt" name="one">
+        <label for="kt">KT</label>
+      </div>
+
+
+      <div class="mb-3">
+        야구팀<br>
+        <div>
+          <input type="checkbox" id="kt" name="two" value="KT">
+          <label for="kt">KT</label>
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="range1" class="form-label">Example range</label>
+        <input type="range" min="0" max="5" step="0.5" id="range1">
+      </div>
+
+    </form>
+  </div>
+
+  
+</body>
+</html>
