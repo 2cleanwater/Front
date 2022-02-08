@@ -22,6 +22,6 @@ console.log('unType: ' + unType + ' typeof(unType): ' + typeof(unType));
 console.log('nullType: ' + nullType + ' typeof(nullType): ' + typeof(nullType));
 
 
-// null
+console.log('A\t\tB');
 
 
