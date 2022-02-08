@@ -21,7 +21,7 @@ console.log('');
 
 // let => ECMA 2015 (ES6) 익스클로러 11 이하는 사용 제약이 따른다
 // hosting은 이루어지지만 변수가 저장되는 객체가 다르다
-// let TDZ(Template Dead Zone)이라는 영역에 저장된다
+// let TDZ(Temporal Dead Zone)이라는 영역에 저장된다
 let A1 = 'LET Global'
 let alert = 'Hello World';
 // window.alert('Let Scople');      // 정상 실행됨. 귀찮아서 주석처리함
