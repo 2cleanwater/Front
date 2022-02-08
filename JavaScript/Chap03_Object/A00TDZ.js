@@ -71,3 +71,15 @@ arr[3] = 40;
 
 console.log(arr);
 
+
+
+let fn = function() {
+    console.log('let Function');
+};
+
+const fn1 = function() {
+    console.log('const Function');
+}
+
+fn = 100;
+// fn1 = 100;
