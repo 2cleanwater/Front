@@ -15,7 +15,7 @@ console.log('');
 // 계산된 프로퍼티 이름
 var prefix = 'prop'
 for(let i = 0; i < 3; i++) {
-    obj['prefix' + i + 'value'] = i;
+    obj[prefix + i + 'value'] = i;
 };
 console.log(obj);
 
