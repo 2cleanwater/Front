@@ -22,3 +22,42 @@ onAdd();
 onAdd(10,20,30,'a',50,60)
 
 
+function onAdd1(x) {
+    // console.log(arguments);
+    // console.log(arguments[0]);
+    let result = 0;
+
+    // X 매개변수가 첫번째 arguments[0]
+    for(let i = 1; i < arguments.length; i++) {
+        let num = Number(arguments[i]);
+        if(isNaN(num)) {        // isNaN() => ()의 값이 숫자가 아니면 true
+            continue;
+        }
+        result = result + arguments[i];
+    }
+    console.log(`${x}: ${arguments.length} / Total: ${result}`);
+}
+
+onAdd1('합계', 10,20,30,'a',50,60)
+
+
+// ES6 
+// 첫번째 매개변수 이외는 rest라는 배열로 담겨 넘어온다
+function onAdd2(x, ...rest) { 
+    // console.log(arguments);
+    // console.log(arguments[0]);
+    console.log(rest);
+    let result = 0;
+
+    // X 매개변수가 첫번째 arguments[0]
+    for(let i = 1; i < rest.length; i++) {
+        let num = Number(rest[i]);
+        if(isNaN(num)) {        // isNaN() => ()의 값이 숫자가 아니면 true
+            continue;
+        }
+        result = result + rest[i];
+    }
+    console.log(`${x}: ${rest.length} / Total: ${result}`);
+}
+
+onAdd2('합계', 10,20,30,'a',50,60)
