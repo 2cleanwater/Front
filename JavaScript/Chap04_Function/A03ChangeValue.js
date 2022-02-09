@@ -21,7 +21,7 @@ var objB = objA;
 console.log(objB == objB, objA === objB);
 
 objA.name = 'HungBu';
-console.log(objB == objB, objA === objB);
+console.log(objA == objB, objA === objB);
 console.log('');
 
 
@@ -36,20 +36,18 @@ console.log('');
 
 
 function func(x, y) {
-    x = 200;
-    y.name = 'BangJa';
+    x = 1;
+    y.name = 'ABC';
 };
 
-var num = 100;
-var obj = {
-    name: 'NolBu', 
-    age: 30
-};
+let x = 100;
+let y = { name: 'Y', num: 200 };
+
 
 console.log('----- 함수 호출 이전 -----');
-console.log(num, obj);
+console.log(x, y);
 
-func(num, obj);
+func(x, y)
 
 console.log('----- 함수 호출 이후 -----');
-console.log(num, obj);
+console.log(x, y);
