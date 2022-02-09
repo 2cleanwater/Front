@@ -1,6 +1,7 @@
 
 console.log('---------------- prototype chain -----------------');
 
+
 var one = { 
     name: 'One',
     display: function() { console.log(this.name) }

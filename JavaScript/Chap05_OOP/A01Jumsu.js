@@ -85,3 +85,23 @@ bangJa2.display();
 hangdan2.display();
 console.log('');
 
+
+
+Object.prototype.toText = function() {
+    console.log('Hello World');
+};
+
+String.prototype.toTrim = function() {
+    console.log('String toTrim');
+}
+
+let obj = { };
+obj.toText();
+// obj.toTrim();
+
+let arr = [];
+arr.toText();
+
+let str = 'ABC';
+str.toText();
+str.toTrim();
