@@ -1,9 +1,5 @@
 
 console.log('---------------- Object -----------------');
-// var로 선언된 변수는 window(global) 영역을 오염시킨다.
-// let, const => TDZ에 선언되므로 window(global) 영역을 오염시키지 않는다
-const X = 10;
-// X = 100;
 
 const obj = {
     name: 'NolBu',
@@ -12,14 +8,6 @@ const obj = {
         console.log(this.name + ' / ' + this.address);
     }
 };
-
-// obj = { name: 'ABC' };               // Error
-
-// 배열의 경우
-// const arr = [10, 20, 30];            // 
-// arr[0] = 100;
-// arr = [];
-
 
 // 프로퍼티 추가
 obj.age = 30;
@@ -42,8 +30,14 @@ obj.display();
 
 delete obj.display;
 console.log(obj);
+console.log('');
 
 
+// 열거 가능한 속성으로 지정된 요소만 출력 가능
+for(let key in obj) {
+    // console.log(typeof(key));        // string
+    console.log(key, obj[key]);         // obj.'name'(X) => obj['name']
+}
 
 
 

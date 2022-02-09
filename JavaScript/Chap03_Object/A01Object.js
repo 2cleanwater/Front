@@ -1,82 +1,80 @@
 
 console.log('---------------- Object -----------------');
 
-var nolbu = 'NolBu';
-var kor = 100;
-var eng = 80;
-var total = kor + eng;
-var avg = total / 2;
-console.log(nolbu + '님의 총점은 ' + total + '이고 평균은 ' + avg + '입니다');
-console.log(`${nolbu}님의 총점은 ${total}이고 평균은 ${avg}입니다.`);
-console.log('');
-
-// 객체 Object를 이용하여 하나의 이름으로 묶자
-let hungbu = new Object();
-hungbu.name = '흥부';
-hungbu.kor = 100;
-hungbu.eng = 70;
-hungbu.total = hungbu.kor + hungbu.eng;
-hungbu.avg = hungbu.total / 2;
-console.log(`${hungbu.name}님의 총점은 ${hungbu.total} / ${hungbu.avg}`);
-
-
-// 함수가 global 영역에서 선언되었으므로 this는 window
-function outer() {
-    console.log(this);
+const one = new Object();
+one.name = 'ONE';
+one.kor = 100;
+one.eng = 90;
+one.total = one.kor + one.eng;
+one.avg = one.total / 2;
+one.that = this;                    // window
+one.info = function() {
+    console.log(this);              // one 객체 자체를 나타낸다.
 }
-console.log(outer());
+console.log(one);
+one.info();
 
 
 
-// new Object()를 { }로 변경해서 묶을 수 있다
-// 함수 이외의 { } 영역의 this는 window
-let hangDan = {
-    name: '향단',
-    kor: 50,
-    eng: 50,
-    // this는 window
-    total: this.kor + this.eng,
-    avg: this.total / 2,            // 마지막 ,는 es6부터는 다음이 없어도 에러 아님(이전에는 에러)
-}
-console.log(hungbu);
-console.log(hangDan);
-console.log(hangDan.total);
-
-// 구조를 볼 경우
-console.dir(hungbu);
-console.dir(hangDan);
-
-
-// Object는 key: value 쌍의 집합이다
-// key는 JavaScript의 변수 명명 규칙을 따른다
-// 그렇지 않은 경우는 문자열로 이름을 정의한다
-// key가 number면 문자열로 자동 치환한다
-// 문자열의 key 값은 "객체명['문자열']" 형태로 참조
-const bangJa = {
-    name: '방자',
-    'bangja-kor': 100,
-    'bangja-eng': 50,
-    100: 150,
-}
-console.log(bangJa);
-// console.log( bangJa.bangja-kor );    // NaN
-console.log(bangJa['bangja-kor']);
-// console.log(bangJa.100);             // Error
-console.log(bangJa['100']);
-
-const hong = {
-    name: '홍길동',
-    kor: 100,
-    eng: 90,
-
-    // 객체 내부에 객체의 프로퍼티 값을 참조하는 함수를 메서드라 한다.
+// {} 사용
+const two = {
+    name: 'TWO',
+    kor: 80,
+    eng: 70,
+    // 초기화될때 어떤 프로퍼티가 먼저 초기화될지 모름. kor 프로퍼티가 없을 수도 있음.
+    // total: two.kor + two.eng,
+    // avg: total / 2,
+    that: this,                     // window
+    info: function() {
+        console.log(this);          // two 객체 자체
+    },
     total: function() {
         return this.kor + this.eng;
     },
-    avg: function(num) {
-        return this.total() / num;
+    avg: function() {
+        return this.total() / 2;
     }
 }
-console.log(hong);
-console.log( hong.total() );
-console.log( hong.avg(2) );
+console.log(two);
+console.log(two.total(), two.avg());
+two.info();
+console.log('');
+
+
+// key가 JavaScript 명명규칙과 다른경우
+const three = new Object();
+three.name = 'three';
+three['t-kor'] = 100;
+three['t-eng'] = 90;
+three[200] = 50;
+three.total = three['t-kor'] + three['t-eng'];
+three.avg = three.total / 2;
+three.that = this;                      
+three.info = function() {
+    console.log(this);
+}
+console.log(three);
+console.log(three[200]);
+three.info();
+console.log('');
+
+
+const four = {
+    name: 'FOUR',
+    'f-kor': 80,
+    'f-eng': 70,
+    that: this,
+    info: function() {
+        console.log(this);
+    },
+    total: function() {
+        return this['f-kor'] + this['f-eng'];
+    },
+    avg: function() {
+        return this.total() / 2;
+    }
+}
+console.log(four);
+console.log(four.total(), four.avg());
+four.info();
+console.log('');
