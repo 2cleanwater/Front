@@ -7,3 +7,8 @@
     HTML DOM의 li 등이 Array Like Object이다.
 */
 
+let obj = {
+    0: 'NolBu',
+    1: 'HungBu',
+    legth: 2,
+};
