@@ -98,8 +98,18 @@ for(let item of mySet) {
 }
 
 
+// for ~ of
+let mSet = new Set([10, 11, 100]);
 
+console.log(mSet);      // [[Prototype]]을 보면 next()가 없음. 이터레이터 객체가 아님
+// mSet.next();         // 따라서 이게 에러
 
+// mSet의 values()가 순환된다.
+// Set의 values()는 이터레이터 객체
+// 따라서 done: true가 되기 전까지 하나씩 순차적으로 next()를 호출하면서 값을 대입해 준다
+for(let item of mSet) { 
+    console.log(item);
+}
 
 
 
