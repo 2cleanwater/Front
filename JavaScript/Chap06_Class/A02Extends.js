@@ -20,3 +20,31 @@ class Jumsu {
     }
 }
 
+class JumsuThree extends Jumsu {
+
+    constructor(name, kor, eng, math) {
+        super(name, kor, eng);
+        this.math = math;
+    };
+
+    // override
+    onTotal() {
+        return this.kor + this.eng + this.math;
+    }
+    onAvg() {
+        return this.onTotal() / 3;
+    }
+
+}
+
+const nolbu = new Jumsu('놀부', 100, 80);
+const hungbu = new JumsuThree('흥부', 100, 90, 80);
+console.log(nolbu);
+console.log(hungbu);
+
+console.log(nolbu.onTotal(), nolbu.onAvg());
+nolbu.display();
+
+console.log(hungbu.onTotal(), hungbu.onAvg());
+hungbu.display();
+
