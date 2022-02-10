@@ -44,8 +44,10 @@ mySet.forEach( (item, index) => console.log(index, item));
 
 // Set에는 index가 없음. 따라서 for 문 순환이 안됨
 // Set은 value가 key 역할도 한다
+console.log('--------- key -------------');
 let key = mySet.keys();
 console.log(key);
+
 
 let value = mySet.values();
 console.log(value);
@@ -84,7 +86,7 @@ for(let i in ary) {
 };
 console.log('');
 
-for(let item of ary) {
+for(let item of ary) {      // next()
     console.log(item);
 }
 console.log('');
@@ -94,4 +96,13 @@ console.log('');
 for(let item of mySet) {
     console.log(item);
 }
+
+
+
+
+
+
+
+
+
 
