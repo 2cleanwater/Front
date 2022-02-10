@@ -39,6 +39,10 @@ console.log(x);
 x = ary.map( (item, index) => {
     return {i: index, value: item};
 });
+
+// 한줄로 적는다면 리턴값이 객체라 {}를 함수의 시작과 종료로 인식하므로
+// ()로 묶을 필요가 있다.
+x = ary.map( (item, index) => ({i: index, value: item}) );
 console.log(x);
 
 console.log('');
@@ -62,8 +66,24 @@ x = ary.filter( (item) => {
 console.log(x);
 
 
+console.log('---------------- Array reduce -----------------'); 
+ary = [10, 11, 100, 101, 1000];
 
+x = ary.reduce( function(init, item) {
+    let total = 0;
+    total = init + item;
+    return total;
+}, 0);  // 0이 INIT값. 처음 1번만 반영된다
+console.log(x);
+
+// { 'NolBu': 1 }
+// { 'NolBu': 1, 'HungBu': 1,  }
 var names = ['NolBu', 'HungBu', 'BangJa', 'HongGilDong', 'HungBu', 'BangJa',]
+x = names.reduce( (obj, item) => {
+    if( !obj[item] ) obj[item] = 1;                  // obj['NolBu']
+    else obj[item] = obj[item] + 1;
 
-
+    return obj
+}, {});
+console.log(x);
 
