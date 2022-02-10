@@ -124,10 +124,12 @@ try {
 
 
 try {
-    if(true) {
+    // 사용자가 원하지 않은 동작을 했니?. 강제로 아래 명령이 실행 안되게 할 목적
+    if(true) { 
         throw new Error('이게 표시될 에러 메시지')
     }
     console.log('여기는 실행 안됨');
+   
 } catch(err) {
     console.log(err.message);
 } finally {
