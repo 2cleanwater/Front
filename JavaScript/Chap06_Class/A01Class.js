@@ -25,7 +25,6 @@ let nolbu = new Jumsu('NolBu', 100, 80);
 nolbu.display();
 
 
-
 // ES6
 class JumsuClz {
     // 멤버변수 선언은 없음. 멤버변수는 생성자 메서드 내부에서 정의
