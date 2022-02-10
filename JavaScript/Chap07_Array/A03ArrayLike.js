@@ -10,5 +10,11 @@
 let obj = {
     0: 'NolBu',
     1: 'HungBu',
-    legth: 2,
+    length: 2,
+
+    push: function(value) {
+        this.length++;
+        this[this.length] = value;
+        return this.length;
+    }
 };
