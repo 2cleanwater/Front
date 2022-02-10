@@ -47,11 +47,16 @@ class JumsuClz {
         return this.kor;
     }
     set _kor(num) {
-        this.kor = num;
+        if(typeof(num) !== 'number') {
+            this.kor = 0;
+        } else {
+            this.kor = num;
+        }
     }
 
     // static
     // static에서는 this 참조 안됨.
+    // static이 붙은 변수나 함수는 클래스 이름으로 호출한다.
     static getArea(w, h) {
         console.log(`면적은 ${w * h}`);
     }
