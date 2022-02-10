@@ -2,18 +2,14 @@
 console.log('---------------- this -----------------');
 
 // 객체 내부 메소드 내부의 함수.
-var count = 100;
+let count = 100;
 
-var myObj = {
-	
+const myObj = {
+	count: 0,
+
 	visit: function(){ 
-        
-
-        function inner(x) {
-            
-        }
-
-        inner(2);
+        ++this.count;
+        console.log('visit: ', this.count);
 	}
 };
 
@@ -22,13 +18,13 @@ console.log('');
 
 
 console.log('--------------- 편법 that ---------------');
-var count = 100;
+// var count = 100;
 
 
 
 
 console.log('--------------- 함수 내부의 함수 ---------------');
-var cnt = 10;
+// var cnt = 10;
 
 
 
