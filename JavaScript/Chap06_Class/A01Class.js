@@ -25,3 +25,36 @@ let nolbu = new Jumsu('NolBu', 100, 80);
 nolbu.display();
 
 
+
+// ES6
+class JumsuClz {
+    // 멤버변수 선언은 없음. 멤버변수는 생성자 메서드 내부에서 정의
+
+    constructor(name, kor, eng) {     // 생성자 메서드는 constructor라는 이름으로 고정
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+    }
+
+    onTotal() {
+        return this.kor + this.eng;
+    };
+
+    onAvg(num) {
+        return this.onTotal() / num;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
