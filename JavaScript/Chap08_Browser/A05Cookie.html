@@ -13,7 +13,7 @@
 
         <div>
             Name: <span id="name"></span><br>
-            Age: <span id="age"></span>
+            Age: <span id="age"></span><br>
             Address: <span id="address"></span>
         </div>
 
@@ -42,16 +42,16 @@
         function addCookie(name, value, expires, path, domain, sec) {
             let ck = '';
             ck += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; '
-            // if(expires) ck += 'expires=' + expires + '; ';
-            // if(path) ck += 'path=' + path + '; ';
-            // if(domain) ck += 'domain=' + domain + '; ';
-            // if(sec) ck += 'secure=' + sec + '; ';
-            console.log(ck);
+            if(expires) ck += 'expires=' + expires + '; ';
+            if(path) ck += 'path=' + path + '; ';
+            if(domain) ck += 'domain=' + domain + '; ';
+            if(sec) ck += 'secure=' + sec + '; ';
+            // console.log(ck);
             document.cookie = ck;
         }
 
-        // addCookie('이름', '홍길동', 20, '/', 'localhost:5501', false);
-        addCookie('Age', '30', 20, '/', 'localhost:5501', false);
+        // addCookie('이름', '한글', 20, '/', 'localhost:5501', false);
+        // addCookie('Age', '30', 20, '/', 'localhost:5501', false);
         // addCookie('Address', 'Seoul', 20, '/', 'localhost:5501', false);
 
         function getCookie(name) {
@@ -60,7 +60,8 @@
             for(let i = 0; i < ck.length; i++) {    // name=Hungbu; ex..=20;
                 let value = ck[i].split('=');
                 let key = decodeURIComponent(value[0]);
-                if(key === name) {
+                
+                if(key == name) {
                     let result = decodeURIComponent(value[1]);
                     return result;
                 }
@@ -69,9 +70,10 @@
         }
 
         // console.log(document.cookie);
-        let name = getCookie('name');
+
+        let name = getCookie('이름');
         let age = getCookie('Age');
-        let address = getCookie('address');
+        let address = getCookie('Address');
 
         document.getElementById('name').innerText = name;
         document.getElementById('age').innerText = age;
