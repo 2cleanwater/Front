@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <title>A01 Node</title>
-</head>
-<body>
-    <div class="card-body">
-        <h2>A01 Node</h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <title>A01 Node</title>
+    </head>
+    <body>
+        <div class="card-body">
+            <h2>A01 Node</h2>
 
-        <ul id="list">
-           <li>리스트 01</li>
-           <li>리스트 02</li>
-           <li>리스트 03</li> 
-        </ul>
-    </div>
+            <ul id="list">
+                <li>리스트 01</li>
+                <li>리스트 02</li>
+                <li>리스트 03</li> 
+            </ul>
+        </div>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
+            // console.log(document.childNodes);
+            // console.log(document.parentNode);
+            // console.log(document.childNodes[1]);
+            
+            
+            let list = document.getElementById('list');
+            console.log(list.childNodes);
+            console.log(list.parentNode);
 
-    </script>
-</body>
+            console.log(list.childNodes[0].nodeType);       // 3
+            console.log(list.childNodes[0].nodeName);
+
+            console.log(list.childNodes[1].nodeType);       // 1
+            console.log(list.childNodes[1].nodeName);
+            console.log('');
+
+            console.log(list.firstChild);
+            console.log(list.firstChild.nextSibling);
+            console.log(list.firstChild.nextSibling.nextSibling);
+            console.log(list.firstChild.nextSibling.nextSibling.nextSibling);
+
+            console.log(list.lastChild);
+            console.log(list.lastChild.previousSibling);
+            console.log(list.lastChild.previousSibling.previousSibling);
+            console.log(list.lastChild.previousSibling.previousSibling.previousSibling);
+
+            console.log(list.firstChild.nextSibling.nodeType);
+            console.log(list.firstChild.nextSibling.nodeName);
+
+
+            // Element만 검색하는 명령
+            console.log(list.children);
+            console.log(list.firstElementChild);
+            console.log(list.lastElementChild);
+
+            console.log(list.firstElementChild.nextElementSibling);
+            console.log(list.lastElementChild.previousElementSibling);
+
+            list.firstElementChild.innerHTML = 'Hello World';
+        </script>
+    </body>
 </html>
