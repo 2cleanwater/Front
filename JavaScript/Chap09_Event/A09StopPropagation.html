@@ -7,14 +7,52 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A09 StopPropagation / page 779</title>
     <style>
-		div#outer { border:solid 1px black; width:350px; height:200px; padding: 10px 10px 10px 10px; position:absolute; top: 200px; left:50px; }
-		div#one { border:solid 1px black; background-color: orange; width:100px; height:100px; position:absolute; top:50px; left:50px; }
-        div#two { border:solid 1px black; background-color: orange; width:100px; height:100px; position:absolute; top:50px; left:200px; }
+        /* 
+            div.orange { color: orange; }
+
+            div 태그에서만 사용할 수 있는 orange class
+            ex] <div class="orange">정상 적용됨</div>
+            ex] <p class="orange">이건 적용 안됨</p>
+         */
+       
+		#outer { border:solid 1px black; width:350px; height:200px; 
+            padding: 10px 10px 10px 10px; position:absolute; top: 200px; left:50px; }
+		#one { border:solid 1px black; background-color: orange; width:100px;       
+            height:100px; position:absolute; top:50px; left:50px; }
+        #two { border:solid 1px black; background-color: orange; width:100px; 
+            height:100px; position:absolute; top:50px; left:200px; }
 	</style>
 
     <script type="text/javascript">
         (function(){
-            
+            window.addEventListener('load', function(){
+                // querySelector는 지정한 요소가 여러개 있어도 첫번째로 발견한 요소만 가져온다
+                document.querySelector('#outer').addEventListener('click', function(evt){
+                    // target => 이벤트가 발생된 요소(클릭된 맨 위 요소)
+                    // currentTarget => 누구의 이벤트가 발생되었는지 그 요소를 지칭
+                    console.log(evt.target, evt.currentTarget);
+                });
+
+                document.querySelector('#one').addEventListener('click', function(evt){
+                    console.log(evt.target, evt.currentTarget);
+                    if(true) {                      // 어떤 조건을 만족하면
+                        evt.stopPropagation();      // 상위 bubbling 단계의 모든 이벤트는 취소
+                    }
+                });
+                
+                document.querySelector('#two').addEventListener('click', function(evt){
+                    console.log(evt.target, evt.currentTarget);
+                    if(true) {                          // 어떤 조건을 만족하면
+                        // 자신의 동일 이벤트도 취소하고 상위 bubbling 단계의 모든 이벤트는 취소
+                        evt.stopImmediatePropagation()  
+                    }
+                });
+
+                document.querySelector('#two').addEventListener('click', function(evt){
+                    console.log(evt.target, evt.currentTarget);
+                });
+                
+            });
         })();
     </script>
 </head>

@@ -9,7 +9,22 @@
     <script type="text/javascript">
         
         window.addEventListener('load', function(){
+            document.querySelector('a[href^="http"]').addEventListener('click', function(evt){
+                console.log('Google');
+                // HTML 요소에 포함된 내장 자바스크립트 명령을 취소(적용 안함)
+                evt.preventDefault();
+            });
 
+            document.querySelector('input[type="text"]').addEventListener('keydown', function(evt){
+                evt.preventDefault();
+            });
+
+
+            document.querySelector('button[type="submit"]').addEventListener('click', function(evt){
+                evt.preventDefault();
+
+                // 여기서 Ajax를 이용하여 서버에 직접 전송 로직 구현
+            });
         });
         
     </script>
@@ -18,7 +33,7 @@
     <div class="card-body">
         <h2>10. preventDefault</h2>
 
-        <form>
+        <form method="get" action="">
             Name: <input type="text" class="form-control">
             <button type="submit">SEND</button>
         </form>
