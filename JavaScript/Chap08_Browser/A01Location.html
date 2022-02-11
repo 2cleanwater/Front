@@ -24,11 +24,11 @@
         <br>
 
         <div>
-            <button>href</button>
-            <button>assign</button>
-            <button>Replace</button>
-            <button>Reload</button>
-            <button>search</button>
+            <button onclick="google()">href</button>
+            <button onclick="naver()">assign</button>
+            <button onclick="daum()">Replace</button>
+            <button onclick="location.reload()">Reload</button>
+            <button onclick="location.search='name=Nolbu&age=20'">search</button>
             <br>
 
             <button onclick="goBack()">back</button>
@@ -39,6 +39,7 @@
     </div>
 
     <script type="text/javascript">
+        // window는 생략 가능하다.
         var hash = window.location.hash;
         var host = location.host;
         var hostname = location.hostname;
@@ -73,6 +74,20 @@
         }
         function forwardTwo() {
             history.go(2);
+        }
+
+        // location 객체에는 주소줄을 제어하는 명령
+        function google() {
+            // <a href="http://www.google.com">Google</a>
+            window.location.href = 'http://www.google.com';
+        }
+        function naver() {
+            // history를 남기고 이동한다
+            location.assign('http://www.naver.com');
+        }
+        function daum() {
+            // history를 남기지 않고 이동한다
+            location.replace('http://www.daum.net');
         }
     </script>
 </body>
