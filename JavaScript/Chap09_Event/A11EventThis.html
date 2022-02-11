@@ -15,6 +15,43 @@
                 {name: 'BangJa', kor: 80, eng: 90},
             ];
             
+            function loadEvent() {
+                document.querySelector('#btn1').addEventListener('click', function(evt){
+                    console.log(this);
+                });
+
+                /*
+                addEventListener(eventName, callback) {
+                    callback(event);
+                }
+                */
+            
+                function btn02Event(evt, color) {
+                    console.log(evt.target);
+                    evt.target.style.color = color;
+                }
+
+                document.querySelector('#btn2').addEventListener('click', function(evt){
+                    btn02Event(evt, 'orange');
+                });
+
+
+                function btn03Event(color, bgColor) {        // color => 'orange'
+                
+                    return function(evt) {
+                        console.log(evt.target);
+                        evt.target.style.color = color;     // 함수가 리턴되기 전에 변수의 값으로 변경되어 있음
+                        evt.target.style.backgroundColor = bgColor;
+                    }
+                };
+
+                document.querySelector('#btn3').addEventListener('click', btn03Event('orange', 'white') );
+
+
+                
+            }
+            window.addEventListener('load', loadEvent);
+
         })();
         
     </script>
