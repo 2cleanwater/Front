@@ -10,6 +10,34 @@
 
         (function(){
             
+            const sendData = {};
+
+            function loadEvent() {
+                const form = document.querySelector('form');
+                
+                form.addEventListener('submit', function(evt){
+                    // form이 전송하는 기능 자체를 막아버린다. Ajax 등을 이용해 값을 전송하는 경우
+                    // evt.preventDefault();
+
+                    const name = document.querySelector('input[name="name"]');
+                    if(!name.value || name.value.length < 10) {
+                        alert('이름을 입력해주세요');
+                        name.focus();
+                        name.value = '';
+                        return;
+                    }
+
+                    const age = document.querySelector('input[name="age"]');
+                    if(!age.value) {
+                        alert('나이를 입력해주세요');
+                        age.focus();
+                        age.value = '';
+                        return;
+                    }
+                });
+            };
+
+            window.addEventListener('load', loadEvent)
         })();
 
     </script>
@@ -18,7 +46,7 @@
     <div class="card-body">
         <h2>Form</h2>
 
-        <form>
+        <form method="GET" method="param.jsp">
             Name: <input type="text" name="name" class="form-control"/>
             Age: <input type="text" name="age" class="form-control"/>
             Date: <input type="date" name="date" class="form-control" />

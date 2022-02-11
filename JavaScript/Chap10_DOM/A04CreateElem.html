@@ -68,16 +68,24 @@
                 });
             }
 
-            // makeDOM('div', {title:'ABC', name: 'name'})
+            // makeDOM('div', {title:'ABC', name: 'name'}, '값이 있음')
+            // makeDOM('div', null, '속성은 안 넘길 경우')
             function makeDOM(tagName, attrs, text) {
+                // const elem = document.createElement('div');
                 const elem = document.createElement(tagName);
-                if(attrs) {
+                if(attrs) {     // 값이 있으면 true, 없으면 false
+
+                    // attrs => {title:'ABC', name: 'name'}
                     for(let item in attrs) {
+                        // <div title='ABC'></div>
+                        // <div title='ABC' name="name"></div>
                         elem.setAttribute(item, attrs[item]);
                     }
                 }
                 if(text) {
+                    // let textNode = '값이 있음';
                     let textNode = document.createTextNode(text);
+                    // <div title='ABC' name="name">값이 있음</div>
                     elem.appendChild(textNode)
                 }
 
