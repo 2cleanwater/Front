@@ -31,23 +31,49 @@
             <button>search</button>
             <br>
 
-            <button>back</button>
-            <button>forward</button>
-            <button>go(-2)</button>
-            <button>go(2)</button>
+            <button onclick="goBack()">back</button>
+            <button onclick="goForward()">forward</button>
+            <button onclick="backTwo()">go(-2)</button>
+            <button onclick="forwardTwo()">go(2)</button>
         </div>
     </div>
 
     <script type="text/javascript">
-        var hash;
-        var host;
-        var hostname;
-        var href;
-        var pahtname;
-        var search;
-        var port;
-        var protocol;
+        var hash = window.location.hash;
+        var host = location.host;
+        var hostname = location.hostname;
+        var href = location.href;
+        var pahtname = location.pathname;
+        var search = location.search;
+        var port = location.port;
+        var protocol = location.protocol;
         
+        let x = document.getElementById('hash');
+        // console.log(x);
+        x.innerHTML = hash;
+        document.getElementById('host').innerHTML = host;
+        document.getElementById('hostname').innerHTML = hostname;
+        document.getElementById('href').innerHTML = href;
+        document.getElementById('pahtname').innerHTML = pahtname;
+        document.getElementById('search').innerHTML = search;
+        document.getElementById('port').innerHTML = port;
+        document.getElementById('protocol').innerHTML = protocol;
+
+        // http => Hyper Text Transform Protocal
+        // html => Hyper Text Markup Language
+
+        function goBack() {
+            window.history.back();
+        }
+        function goForward() {
+            history.forward();
+        }
+        function backTwo() {
+            history.go(-2);
+        }
+        function forwardTwo() {
+            history.go(2);
+        }
     </script>
 </body>
 </html>
