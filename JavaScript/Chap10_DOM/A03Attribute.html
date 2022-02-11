@@ -12,8 +12,71 @@
             let google = document.querySelector('a[href *= "google"]');
             console.log(google);
 
+            // 속성 추가
+            google.setAttribute('title', '구글로 이동합니다');
+
+            // 속성 참조
+            let title = google.getAttribute('title');
+            console.log(title);
+
+            // 속성 변경
+            google.setAttribute('title', '속성을 변경하였습니다.');
+
+            // 속성 삭제
+            google.removeAttribute('title');
+            google.removeAttribute('href');
+
+            // 속성이 있니
+            if( !google.hasAttribute('href') ) {
+                google.setAttribute('href', 'http://www.daum.net');
+            };
+
+            // 전체 속성
+            let attrs = document.querySelector('input[name="name"]').attributes;
+            // console.log(attrs);
+            for(let i = 0; i < attrs.length; i++) {
+                console.log(attrs[i].name, attrs[i].value);
+            }
+
+
+            // submit 버튼 이벤트
+            document.querySelector('form button[type="submit"]').addEventListener('click', checkForm)
         });
 
+
+        function checkForm(evt) {
+            console.log('click');
+            evt.preventDefault();
+
+            const sendData = {};
+            const form = document.querySelector('form');
+
+            for(let i = 0; i < form.children.length; i++) {
+                let elem = form.children[i];
+
+                // nodeName은 리턴 값이 모두 대문자.
+                if(elem.nodeName === 'INPUT' && elem.type === 'text') {
+                    // {key: value, key: value}
+                    let name = elem.getAttribute('name');
+                    sendData[name] = elem.value;
+                }
+            }
+            
+            console.log(sendData);      // JavaScript Data 형식
+
+            // JavaScript Data 형식 => JSON Data(text) 형식으로 변환
+            let jsonData = JSON.stringify(sendData);
+            console.log(jsonData);
+
+
+            // 서버 측에서 JSON 타입 형태로 데이터를 전달해 줬다면
+            console.log(typeof(jsonData));
+
+            // JSON Data(text) 형식을 => JavaScript Data 형식(object)으로 변환
+            // GSON, Jackson
+            let jsData = JSON.parse(jsonData);
+            console.log(jsData);
+        }
     </script>
 </head>
 <body>
@@ -24,8 +87,8 @@
             <a href="http://www.google.com">GOOGLE</a>
         </div>
 
-        <form>
-            Name: <input type="text" class="form-control" name="name">
+        <form method="GET" action="xxx.jsp">
+            Name: <input type="text" class="form-control" name="name" >
             Age: <input type="text" class="form-control" name="age">
             Password: <input type="password" class="form-control" name="pw">
             <button type="submit">SEND</button>
