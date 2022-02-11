@@ -42,7 +42,7 @@
         function addCookie(name, value, expires, path, domain, sec) {
             let ck = '';
             ck += encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; '
-            if(expires) ck += 'expires=' + expires + '; ';
+            if(expires) ck += 'max-age=' + expires + '; ';
             if(path) ck += 'path=' + path + '; ';
             if(domain) ck += 'domain=' + domain + '; ';
             if(sec) ck += 'secure=' + sec + '; ';
