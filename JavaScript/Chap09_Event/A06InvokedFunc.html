@@ -7,9 +7,30 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>A06 Immediately Invoked Function</title>
     <script type="text/javascript">
+        
         (function(){
-            
+            // window 영역을 오염시키지 않는다.
+            function threeEvent(evt) {
+                alert(evt.target.innerText);
+            };
+
+            function loadEvent(evt) {
+
+                let one = document.getElementById('btnOne');
+                one.addEventListener('click', function(evt){
+                    alert(evt.target.innerText);
+                });
+
+                document.getElementById('btnTwo').addEventListener('click', function(evt){
+                    alert(evt.target.innerText);
+                });
+    
+                document.getElementById('btnThree').addEventListener('click', threeEvent);
+            }
+
+            window.addEventListener('load', loadEvent);
         })();
+        
     </script>
 </head>
 <body>
@@ -18,6 +39,7 @@
 
         <button id="btnOne">ONE</button>
         <button id="btnTwo">TWO</button>
+        <button id="btnThree">THREE</button>
     </div>
 </body>
 </html>

@@ -11,10 +11,21 @@
     <div>
         <h2>2. Event Scope</h2>
 
+        <!-- event라은 이름은 키워드 -->
+        <button onclick="myEvent(event)">CLICK</button>
+
         <button onclick="clickEvent(event)">CLICK</button>
     </div>
 
     <script>
+        function myEvent(evt) {
+            console.log('My Event');
+            console.log(evt);
+            console.log(evt.target);
+            console.log(evt.target.innerText);
+        };
+
+
         function clickEvent(evt) {
             console.log('Button Clicked: ', this, evt);
         };
