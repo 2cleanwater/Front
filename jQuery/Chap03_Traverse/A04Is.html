@@ -9,6 +9,36 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 
+			$('#save').click(function(){
+				/* 첫번째 방법
+				var fruit = $('#content > input[class="fruit"]:checked').map(function(index, elem){
+					// console.log(index, elem.value);
+					return elem.value;
+				});
+				console.log(fruit);
+
+				for(var i = 0; i < fruit.length; i++) {
+					console.log(fruit[i]);
+				}
+				*/
+
+				/*
+				// 두번째 방법. get() => jquery 배열을 JavaScript 배열로 바꾸어서 리턴한다
+				var x = $('#content > input[class="fruit"]:checked').map(function(index, elem){
+					return elem.value;
+				}).get().join(' - ')
+				console.log(x);
+				*/
+
+				// 세번째 방법. 어자피 순환을 하니까 IF문에서 있는지를 체크해도 된다
+				var x = $('#content > input[class="fruit"]').map(function(index, elem){
+					if( $(elem).is(':checked') ) return elem.value;
+				}).get().join(' - ')
+				console.log(x);
+
+				$('#list').html(x);
+			});
+
 		});
 	</script>
 </head>

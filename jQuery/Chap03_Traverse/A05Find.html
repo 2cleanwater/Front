@@ -8,7 +8,31 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			// filter => 검색된 배열에서 찾는다.
+			// find => 지정한 컨텐츠의 하위(자식)요소에서 검색한다.
+			/*
+			var x = $('#foods').css('color', 'gray')
+				.filter('.test').css('backgroundColor', 'orange');
+			console.log(x);
+			*/
 			
+			/* // filter
+			var x = $('#foods td').css('color', 'gray')			// 배열은 table 배열 1개
+				.filter('.test').css('backgroundColor', 'orange');
+			console.log(x);
+			*/
+
+			/* // find
+			var x = $('#foods td').css('color', 'gray')			// 배열은 table 배열 1개
+				.find('.test').css('backgroundColor', 'orange');
+			console.log(x);
+			*/
+
+
+			var x = $('#foods').css('color', 'lightgray')
+				.find('tr:nth-child(3n+1)').css('backgroundColor', 'gray')
+				.first().css('backgroundColor', 'black')
+			console.log(x);
 		});
 	</script>
 </head>
@@ -22,10 +46,10 @@
 				<th>ID</th><th>먹을거리</th><th>분류</th>
 			</tr>
 			<tr>
-				<td>F001</td><td>짜장면</td><td>중식</td>
+				<td>F001</td><td class="test">짜장면</td><td>중식</td>
 			</tr>
 			<tr>
-				<td>F002</td><td>라면</td><td>분식,한식</td>
+				<td>F002</td><td><span class="test">라면</span></td><td>분식,한식</td>
 			</tr>
 			<tr>
 				<td>F003</td><td>김치찌개</td><td>한식</td>
