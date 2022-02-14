@@ -16,17 +16,31 @@
 				{ title: "멕시코, 칸쿤-치첸이사", image: "images/chichenitza.jpg" },
 				{ title: "페루, 마추피추", image: "images/machu.jpg" },
 				{ title: "중국, 만리장성" },
-				{ title: "미국, 나이아가라 폭포", image: "images/niagarafalls.jpg" },
+				{ image: "images/niagarafalls.jpg" },
 				{ title: "인도, 타지마할", image: "images/tajmahal.jpg" }
 			];
 			//이곳에 코드를...
+
+			// $('#places > img:first').attr('src', 'images/capetown.jpg');
+			$('#places > img').each(function(index, elem){
+				if( places[index].image ) {
+					$(elem).attr('src', places[index].image);
+				} else {
+					$(elem).attr('src', 'images/noimage.jpg')
+				}
+				if( places[index].title ) {
+					$(elem).attr('alt', places[index].title);
+				} else {
+					$(elem).attr('alt', '이미지 파일입니다');
+				}
+			})
 		});
 	</script>
 </head>
 
 <body>
 	<div class="card-body" id="places">
-		<img src="images/noimage.jpg" />
+		<img />
 		<img src="images/noimage.jpg" />
 		<img src="images/noimage.jpg" />
 		<img src="images/noimage.jpg" />

@@ -10,7 +10,13 @@
 		$(document).ready(function () {
 
 			$('#toggle').click(function(){
-				
+				var elem = $('#content > div > input');
+				// if( elem.is(':enabled') ) {
+				if(!elem.is(':disabled')) {
+					elem.attr('disabled', 'disabled')
+				} else {
+					elem.removeAttr('disabled')
+				}
 			});
 			
 		});
