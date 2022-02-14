@@ -11,27 +11,13 @@
         
         $(function(){
             var test = $('.test').css('color', 'orange');
-            console.log(test);
 
-            // jQuery 배열에서 추출하면 JavaScript DOM 객체가 반환된다,
-            // first는 JavaScript 객체 => jQuery 객체가 아님
-            var first = test[0];
-            console.log(first);
-
-            // JavaScript 객체에 jQuery 명령을 적용해서 실행 => Error
-            // first.css('fontWeight', 'bold');
-            first.style.fontWeight = 'bold';
-
-            // JavaScript 객체를 jQuery 객체로 변환 => $(변수명)
-            $(first).css('fontSize', '20pt');
-            $(test[1]).css('fontSize', '20pt');
-
-            var dom = '<div>Hello World</div>';
-            console.log(dom);
-
-            var jq = $(dom).css('color', 'orange');
-            console.log(jq);
-
+            for(var i = 0; i < test.length; i++) {
+                if(i % 2 === 0) {
+                    $(test[i]).css('fontSize', '20pt');
+                    $(test[i]).css('fontWeight', 'bold');
+                }
+            }
         });
 
     </script>
