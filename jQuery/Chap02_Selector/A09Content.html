@@ -12,7 +12,20 @@
     <script type="text/javascript">
         // 컨텐츠 필터 선택자
         $(document).ready(function () {
+            // table 안에 table이 있는 경우 하위 테이블 td까지 모두 선택됨
+            // $('#nations td')
+            
+            // 태그에 컨텐츠의 값을 검색
+            $('#nations > tbody td:contains("국")').css('backgroundColor', 'orange');
 
+            // 태그 안에 태그를 검색
+            $('#nations > tbody > tr > td:has("b")').css('backgroundColor', 'lightgray');
+
+            // 태그에 컨텐츠가 존재하지 않니?
+            $('#nations > tbody > tr > td:empty()').css('backgroundColor', 'lightblue');
+
+            // 지정한 태그의 부모 => 따로 명령이 존재한다
+            $('#nations > thead > tr > th:parent()').css('backgroundColor', 'lightblue');
         });
     </script>
 </head>
@@ -34,10 +47,10 @@
                 <tr><td>1</td><td>미국</td><td>워싱턴DC</td></tr>
                 <tr><td>2</td><td>프랑스</td><td>파리</td></tr>
                 <tr><td>3</td><td>영국</td><td>런던</td></tr>
-                <tr><td>4</td><td>중국</td><td>베이징</td></tr>
+                <tr><td>4</td><td>중국</td><td></td></tr>
                 <tr><td>5</td><td>태국</td><td>방콕</td></tr>
                 <tr><td>6</td><td>모로코</td><td>라바트</td></tr>
-                <tr><td>7</td><td>라오스</td><td>비엔티안</td></tr>
+                <tr><td>7</td><td>라오스</td><td><b>비엔티안</b></td></tr>
                 <tr><td>8</td><td>베트남</td><td>하노이</td></tr>
                 <tr><td>9</td><td>피지</td><td>수바</td></tr>
                 <tr><td>10</td><td>솔로몬 제도</td><td>호니아라</td></tr>
