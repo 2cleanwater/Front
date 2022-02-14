@@ -10,7 +10,12 @@
         $(document).ready(function () {
 
             var list = $(":input");
-            
+            // console.log(list);
+            list.each(function(index, elem){
+                $(elem).click(function(evt){
+                    alert( (index + 1) + '번째 클릭..');
+                })
+            });
         });
     </script>
 </head>
