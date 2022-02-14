@@ -5,32 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A01 Start</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script type="text/javascript" src="./jquery-3.6.0.js"></script>
-    <script type="text/javascript">
-        // jQuery 라이브러리 밑에 이용할 명령을 기술한다.
-        // window.addEventListener('load', function(){ });
-
-        console.log($);
-        console.log(jQuery);
-
-        // window.load 이벤트를 구현한 명령
-        $(document).ready(function(){
-            console.log('ONE');
-        });
-
-        jQuery(document).ready(function(){
-            console.log('TWO');
-        });
-
-        $(function(){
-            console.log('THREE');
-        });
-        
-        jQuery(function(){
-            console.log('Four');
-        });
-
-    </script>
 </head>
 <body>
     <div class="card-body">
@@ -48,5 +22,18 @@
             <button class="btn btn-outline-primary" id="totalBtn">Total</button>
         </div>
     </div>
+
+    <script type="text/javascript" src="./jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+
+        $('#clickBtn').click(function(evt){
+            let qty = Number( $('#qty').val() );
+            let cost = Number( $('#cost').val() );
+            let result = qty + cost;
+
+            $('span').html('<b>' + result + '</b>');
+        });
+        
+    </script>
 </body>
 </html>

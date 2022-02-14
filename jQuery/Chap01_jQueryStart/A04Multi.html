@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>noConflict</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+    <script type="text/javascript" src="./jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        // console.log($);
+
+        // jQuery의 $ 변수를 막음
+        $.noConflict();
+        console.log($);         // prototype
+        console.log(jQuery);    // jQuery
+
+        jQuery(document).ready(function(){
+            jQuery('#btn1').click(function(){
+                jQuery('#a').text('Button01 Clicked')
+            });
+        });
+
+        jQuery(function($){         // 첫번째 매개변수는 jQuery 객체를 주입
+            $('#btn2').click(function(){
+                $('#a').text('Button02 Clicked')
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id="btn1">Button 1</button>
+    <button id="btn2">Button 2</button>
+    <br>
+    <div id="a">A</div>
+</body>
+</html>
