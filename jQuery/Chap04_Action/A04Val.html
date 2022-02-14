@@ -10,12 +10,12 @@
 		$(document).ready(function () {
 			$("input:disabled").css("border", "dashed 2px gray");
 
-			$('#content button').click(function(){
+			$('#content button[name="inquery"]').click(function(){
 
-				// val() => 지정한 폼 요소의 값을 가져올 때
-				// val(value) => 지정한 폼 요소의 값을 설정할 때
+				// val() => 지정한 폼 요소의 값을 가져올 때. GET
+				// val(value) => 지정한 폼 요소의 값을 설정할 때, SET
 				
-				
+				// $('#content input[name="name"]')
 			})
 		});
 	</script>
