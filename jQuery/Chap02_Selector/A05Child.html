@@ -18,7 +18,12 @@
             $('#acc > .content').hide();
 
             $('#acc > .header').click(function(evt){
-                
+                console.log(this);
+                // $('.header + .content').show();
+
+                // $(this).next().show();
+                // $(this).next().toggle();            // show, hide를 한번씩 적용
+                $(this).next().slideToggle(300);
             });
         });
     </script>
