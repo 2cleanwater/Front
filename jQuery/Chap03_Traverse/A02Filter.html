@@ -17,8 +17,12 @@
                 .filter(function(index, elem){          // elem => 각 배열에 들어있는 요소
                     return $(elem).is('.test')          // is 속성 체크 (true / false)
                 }).css('color', 'orange');
-                
+
             console.log(x);
+
+            var y = $('#two > div').css('color', 'lightgray')
+                .not('.test').css('color', 'orange');
+                
         });
     </script>
 </head>

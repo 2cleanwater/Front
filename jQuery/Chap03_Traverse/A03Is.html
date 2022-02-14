@@ -9,6 +9,18 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            console.log( $('#content').is('.test') );
+            console.log( $('#content > div').is('.test') );
+
+            var x = $('#content > div').css('color', 'gray').is('.test')
+            console.log(x);
+
+            if(x) {
+                $('#content > .test').css('color', 'orange')
+            } else {
+                $('#content > .main').css('color', 'orange')
+            }
+
         });
     </script>
 </head>
