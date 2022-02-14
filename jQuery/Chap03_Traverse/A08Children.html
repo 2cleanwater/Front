@@ -11,7 +11,14 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			var x = $('#a').children();
+			var y = $('#b').children();
 
+			console.log(x);
+			console.log(y);
+
+			$('#a').children().css('color', 'orange');
+			$('#b').children().css('color', 'orange');
 		});
 	</script>
 </head>

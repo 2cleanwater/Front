@@ -18,7 +18,51 @@
                 3 => Text
                 8 => Commend
             */
-           
+           $('#toBold').click(function(evt){
+                var x = $('#content').contents();
+                console.log(x);
+
+                // DOM요소의 변수.each() => jQuery 요소의 배열만 순환
+                // $.each() => JavaScript forEach처럼 모든 요소가 순환 가능
+                /*  // Error. JavaScript 객체는 순환 안됨
+                [10, 11, 100].each(function(index, item){
+                    console.log(item);
+                });
+                */
+
+                /*
+                // jQuery 객체 순환 가능
+                $([10, 11, 100]).each(function(index, item){
+                    console.log(item);
+                });
+                */
+
+                // OK
+                /*
+                $.each( [10, 11, 100], function(index, item){
+                    console.log(item);
+                });
+                */
+
+                // OK
+                /*
+                $.each( $([10, 11, 100]), function(index, item){
+                    console.log(item);
+                });
+                */
+                
+                x.each(function(index, elem){
+                    // . 앞에 객체가 jQuery 객체인지, JavaScript 객체인지를 따져서 명령을 기술
+                    // $(elem).nodeType => jQuery요소에 nodeType 명령을 적용. 
+                    //      nodeType은 JavaScript 명령(jQuery에는 없음)
+                    // $(elem).wrap('<b>') => => jQuery요소에 nodeType 명령을 적용. 
+                    //      wrap은 jQuery 명령
+                    // elem.wrap('<b>') => JavaScript에는 wrap 함수 없음 => Error
+                    if( elem.nodeType === 3 ) {
+                        $(elem).wrap('<b>');
+                    }
+                });
+           })
         });
     </script>
 </head>
@@ -28,6 +72,7 @@
         <button id="toBold">텍스트 노드를 찾아 볼드체로</button>
         <hr />
         <div id="content">
+            <!-- 이것은 주석입니다 -->
             김수한무
             <div>거북이와 두루미</div>
             삼천갑자 동방삭
