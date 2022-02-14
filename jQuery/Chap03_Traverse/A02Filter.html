@@ -8,7 +8,17 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $('#content > div').css('color', 'lightgray')
+                .filter('.test').css('color', 'orange')
+                .filter('.main').css('fontSize', '20pt');
 
+            // var x = [].filter((item, index)=> { return true/false })
+            var x = $('#one > div').css('color', 'lightgray')
+                .filter(function(index, elem){          // elem => 각 배열에 들어있는 요소
+                    return $(elem).is('.test')          // is 속성 체크 (true / false)
+                }).css('color', 'orange');
+                
+            console.log(x);
         });
     </script>
 </head>

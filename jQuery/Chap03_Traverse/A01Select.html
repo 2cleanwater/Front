@@ -8,6 +8,25 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            // 적용을 위해서 문서 전체를 2번 검색한다.
+            var contentDiv = $('#content > div').css('color', 'lightgray');
+            var contentTest = $('#content > .test').css('color', 'orange');
+            // console.log(contentDiv);
+            // console.log(contentTest);
+
+            // 횡단 탐색자 => 일단 검색된 대상을 기준으로 한다.
+            var one = $('#one > div').css('color', 'lightgray')
+                //위의 실행 결과 배열에서 필터링을 한다
+                .filter('.test').css('color', 'orange')
+                .filter('.main').css('fontSize', '20pt')
+                .end()
+                .end()
+            console.log(one);
+
+
+            var two = $('#two > div').css('color', 'lightgray');        // 11개 배열
+            var test = two.filter('.test').css('color', 'orange');      // 3개 배열
+            test.filter('.main').css('fontSize', '20pt')                
 
         });
     </script>
@@ -29,6 +48,20 @@
     </div>
 
     <div class="card-body" id="one">
+        <div id="a">김수한무</div>
+        <div>거북이와 두루미</div>
+        <div class="test">삼천갑자 동방삭</div>
+        <div class="test  main">치치카포 사리사리센타</div>
+        <div>워리워리 세브리깡</div>
+        <div>무두셀라 구름이</div>
+        <div id="b">허리케인에 담벼락</div>
+        <div class="main">담벼락에 서생원</div>
+        <div class="test">서생원에 고양이</div>
+        <div id="a">고양이에 바둑이</div>
+        <div>바둑이는 돌돌이</div>
+    </div>
+
+    <div class="card-body" id="two">
         <div id="a">김수한무</div>
         <div>거북이와 두루미</div>
         <div class="test">삼천갑자 동방삭</div>
