@@ -8,7 +8,20 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript">
         // 일반 선택자
-        
+        $(function(){
+            var all = $('*').css('color', 'gray');
+            console.log(all);
+
+            // 최초 1개
+            var a = $('#a').css('color', 'orange');
+            console.log(a);
+
+            var clz = $('.test').css('color', 'green');
+            console.log(clz);
+
+            var h1 = $('h1').css('color', 'lightblue');
+            console.log(h1);
+        });
     </script>
 </head>
 
