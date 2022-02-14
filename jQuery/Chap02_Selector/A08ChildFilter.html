@@ -12,7 +12,20 @@
     <script type="text/javascript">
         // 자식 필터 선택자
         $(document).ready(function () {
+            // css 표준 방식. 카운트는 1번부터 시작한다
+            $('#nations > tbody > tr:nth-child(1)').css('backgroundColor', 'lightgray');
 
+            $('#nations > tbody > tr:nth-child(3)').css('backgroundColor', 'lightgray');
+
+            // first-child => :nth-child(1)과 동일
+            $('#nations > tbody > tr:last-child()').css('backgroundColor', 'lightgray');
+
+            // line번호 % 3 === 0인 경우 적용된다
+            $('#one > tbody > tr:nth-child(3n)').css('backgroundColor', 'lightgray');
+
+
+            // line번호 % 3 === 1인 경우 적용된다
+            $('#two > tbody > tr:nth-child(3n + 1)').css('backgroundColor', 'lightgray');
         });
     </script>
 </head>
