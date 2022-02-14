@@ -10,6 +10,29 @@
 		var current;
 		$(document).ready(function () {
 			current = $("li.item-1").css("background-color", "aqua");
+
+			// parent() => 지정된 요소의 가장 가까운 부모 요소가 선택된다.
+			// current.parent().css('color', 'orange');
+
+			// parents() => 모든 부모 요소가 선택된다
+			// current.parents().css('color', 'orange');
+
+			// parents('요소명') => 부모 요소의 범위를 지정한다.
+			// current.parents('.level-2').css('color', 'orange');
+
+			// closest('요소명') => 부모 요소의 범위를 지정한다.
+			// current.closest('.level-2').css('color', 'orange');
+
+			// Tag로 지정하면 parents, closest이 다르게 동작
+			// parents('ul') => 최 상위의 부모 요소를 찾아 적용
+			// closest('ul') => 가장 가까운 부모 요소를 찾아 적용
+			// current.parents('ul').css('color', 'orange');	// level-1
+			current.closest('ul').css('color', 'orange');
+
+			// table tr td div link span
+			// span 기준으로 parent() => link
+			// span 기준으로 parents('tr') => tr
+			// span 기준으로 closest('tr') => tr
 		});
 	</script>
 </head>
