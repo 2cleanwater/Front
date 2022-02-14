@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>A08 Offset</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<style>
+		div.bg { width:800px; height:300px; background-color:aqua; margin: 5px 5px 5px 5px; }
+		div#outer { border:solid 1px black; background-color: yellow; width:600px; height:400px; padding: 10px 10px 10px 10px;
+			position:absolute; top: 100px; left:50px; }
+		div#inner { border:solid 1px black; background-color: orange; width:100px; height:100px; position:absolute; top:100px; left:50px; }
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+		});
+	</script>
+</head>
+
+<body>
+	<div class="card-body">
+		<button id="changePos">#inner를 이 버튼의 bottom,right로 위치하게 함</button>
+		<div class="bg"></div>
+		<div class="bg"></div>
+		<div class="bg"></div>
+		<div class="bg"></div>
+		<div id="outer">
+			<div id="inner"></div>
+		</div>
+	</div>
+</body>
+
+</html>
