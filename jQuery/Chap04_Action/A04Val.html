@@ -58,7 +58,18 @@
 
 				// select도 1개만 선택된다
 				var food = $('#content select[name="food"] > option:selected').val();
+				// Form 이외의 HTML 요소
 				$('span[title="foodSpan"]').html(food);
+
+				// Form 요소는 val(value)
+				$('#content > input[name="foodInput"]').val(food);
+
+
+				// select 다중 선택 => checkbox와 동일하게 순환
+				var foods = $('#content select[name="foods"] > option:selected').map(function(index, elem){
+					return $(elem).val();
+				}).get().join(', ')
+				$('span[title="foods"]').html(foods);
 
 
 				// 나중에..
