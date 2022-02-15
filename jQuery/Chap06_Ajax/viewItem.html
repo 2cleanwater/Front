@@ -10,6 +10,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('button[name="list"]').click(function(){
+          location.assign('contactList.html')
+        });
+
+        $('button[name="del"]').click(function(){
+          $.ajax({
+            method: 'DELETE',
+            url: 'http://sample.bmaster.kro.kr/contacts/1644910304464',
+            success: function(data) {
+              console.log(data);
+              location.assign('contactList.html')
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        });
+
+        // 시작하자마자 지정한 no의 데이터를 가져와 표시
+        $.ajax({
+          method: 'GET',
+          url: 'http://sample.bmaster.kro.kr/contacts/1644910304464',
+          success: function(data) {
+            // console.log(data);
+            $('input[name="name"]').val(data.name);
+            $('input[name="tel"]').val(data.tel);
+            $('input[name="address"]').val(data.address);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+
+      });
+    </script>
   </head>
   <body>
     <div class="card-body">
@@ -21,30 +59,9 @@
       Address: <input type="text" class="form-control" name="address"  readonly/>
       <br />
       
-      <button class="btn btn-primary">LIST</button>
+      <button class="btn btn-primary" name="list">LIST</button>
+      <button class="btn btn-danger" name="del">DELETE</button>
     </div>
-
-    <script type="text/javascript">
-      const baseURL = 'http://sample.bmaster.kro.kr/contacts/';
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', baseURL + '1592030163193');            // 연결 준비
-      xhr.send();                                           // 요청
-
-      xhr.addEventListener('load', function(){
-        const data = JSON.parse(xhr.responseText);
-        console.log(data)
-
-        document.querySelector('input[name="name"]').value = data.name;
-        document.querySelector('input[name="tel"]').value = data.tel;
-        document.querySelector('input[name="address"]').value = data.address;
-      });
-
-
-      document.querySelector('button').addEventListener('click', function(){
-        location.assign('./contactList.html')
-      });
-      
-    </script>
   </body>
 </html>
 
