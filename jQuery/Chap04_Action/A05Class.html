@@ -16,13 +16,30 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			$('#a button').mouseenter(function(evt){
+				// console.log(this);
+				// console.log( $(this) );
+
+				// Class가 들어간 명령은 값을 지정할때 .을 생략하고 지정한다.
+				$(this).addClass('hover')
+			});
+
+			$('#a button').mouseleave(function(evt){
+				$(this).removeClass('hover')
+			});
+
+			$('#google').mouseenter(function(){
+				$(this).addClass('hover')
+			}).mouseleave(function(){
+				$(this).removeClass('hover')
+			});
 			
 		});
 	</script>
 </head>
 
 <body>
-	<a href="" id="google">Google</a>
+	<div id="google">Google</div>
 	<br>
 
 	<div class="card-body" id="a">

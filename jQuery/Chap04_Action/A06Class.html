@@ -15,7 +15,34 @@
 		$(document).ready(function () {
 			//radio button!!
 			$('#a button').click(function(){
-				
+				$(this).parent().find('button').removeClass('hover')
+				if( !$(this).hasClass('hover') ) {
+					$(this).addClass('hover')
+				}
+			});
+
+			// toggle button
+			$('#b button').click(function(){
+				if( $(this).hasClass('hover') ) {
+					$(this).removeClass('hover')
+				} else {
+					$(this).addClass('hover')
+				}
+			});
+
+			// 위의 효과를 한번에
+			$('#c button').click(function(){
+				$(this).toggleClass('hover')
+			});
+
+			var obj = [
+				{ img1: './images/capetown.jpg', img2: './images/machu.jpg' },
+				{ img1: './images/chichenitza.jpg', img2: './images/machu.jpg' },
+			]
+			$('#d img').mouseenter(function(){
+				$(this).attr('src', obj[0].img2)
+			}).mouseleave(function(){
+				$(this).attr('src', obj[0].img1)
 			})
 		});
 	</script>

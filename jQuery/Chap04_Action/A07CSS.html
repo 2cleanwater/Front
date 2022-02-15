@@ -19,7 +19,29 @@
 			$("#a").css("fontStyle", "italic");
 			$("#b").css("color", "green").css("fontSize", "20pt")
 
-			
+			$("#c").css({
+				'color': 'orange',
+				'fontSize': '20pt'
+			});
+
+			var obj = {
+				'color': 'orange',
+				'fontSize': '20pt'
+			}
+			$("#d").css(obj);
+
+
+			$("#d").css('fontSize', function(index, old){
+				// 바뀌기 전의 값을 odd로 참조한다
+				console.log(old);
+				return Math.ceil(Math.random() * 30) + 10;
+			});
+
+			var dValue = $('#d').css('color');
+			console.log(dValue);
+
+			var result = $('#d').css(['color', 'fontSize']);
+			console.log(result);
 		});
 	</script>
 </head>
