@@ -14,7 +14,8 @@
 
             for(var i = 0; i < test.length; i++) {
                 if(i % 2 === 0) {
-                    $(test[i]).css('fontSize', '20pt');
+                    // $(test[i]).css('fontSize', '20pt');
+                    test[i].style.fontSize = '20pt';
                     $(test[i]).css('fontWeight', 'bold');
                 }
             }

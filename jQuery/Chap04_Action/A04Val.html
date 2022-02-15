@@ -10,12 +10,61 @@
 		$(document).ready(function () {
 			$("input:disabled").css("border", "dashed 2px gray");
 
+			$('span[title="nameValue"]').css('display', 'block');
+			$('span[title="nameValue"]').hide();
+
 			$('#content button[name="inquery"]').click(function(){
 
 				// val() => 지정한 폼 요소의 값을 가져올 때. GET
 				// val(value) => 지정한 폼 요소의 값을 설정할 때, SET
+				var name = $('#content input[name="name"]').val();
+				if(name) {
+					$('span[title="nameValue"]').show().html(name);	
+				} else {
+					$('span[title="nameValue"]').show().html('값이 입력되지 않았습니다');
+				}
 				
-				// $('#content input[name="name"]')
+				// password
+				var password = $('#content input[name="password"]').val();
+				$('span[title="passwordValue"]').html(password);	
+
+				// comment
+				var comment = $('#content textarea[name="comment"]').val();
+				$('span[title="commentValue"]').html(comment);
+
+				// radio button도 1개만 선택된다
+				var baseball = $('#content input[name="baseball"]:checked').val();
+				$('span[title="baseballValue"]').html(baseball);
+
+
+				// JavaScript.forEach (유사 배열은 에러)
+				// jQuery.each()
+
+				// checkbox는 여러개의 값이 선택된다 => 순환
+				/*
+				var ary = [];
+				$('#content input[name="five"]:checked').each(function(index, elem){
+					// console.log(elem);
+					ary.push( $(elem).val() )
+				})
+				console.log(ary);
+				*/
+				var five = $('#content input[name="five"]:checked').map(function(index, elem){
+					return $(elem).val();
+				}).get().join(', ');
+				// console.log(five);
+				$('span[title="fiveValue"]').html(five);
+
+
+				// select도 1개만 선택된다
+				var food = $('#content select[name="food"] > option:selected').val();
+				$('span[title="foodSpan"]').html(food);
+
+
+				// 나중에..
+				$('#content input[name="name"]').keyup(function(evt){
+					if(evt.ctrlKey && evt.keyCode === 67) return;
+				});
 			})
 		});
 	</script>
