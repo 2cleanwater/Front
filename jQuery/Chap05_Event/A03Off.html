@@ -13,6 +13,38 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			
+			$('#test1').on('click', function(evt) {
+				console.log('Click 01');
+			});
+
+			$('#test2').on('click', function(evt) {
+				console.log('Click 02');
+
+				// this(test2)에 등록된 모든 이벤트를 삭제
+				$(this).off();			// removeEventListner
+			});
+
+			// on => one 으로 변경하면 1번만 실행되는 이벤트가 만들어진다
+			$('#test3').one('click', function(evt) {
+				console.log('Click 03');
+			});
+
+			$('#test4').attr('disabled', 'disabled')
+			$('input[name="isChecked"]').on('click', function(evt){
+
+				$('#test4').removeAttr('disabled')
+
+				if( $(this).is(':checked') ) {
+					// 혹 이전 click 이벤트가 안 지워진 상태라면 지우고
+					// 만들어진 새로운 이벤트를 등록
+					$('#test4').off('click').on('click', function(){
+						console.log('Click 04');
+					});
+				} else {
+					$('#test4').attr('disabled', 'disabled')
+					$('#test4').off('click');
+				}
+			})
 		});
 	</script>
 </head>
@@ -22,8 +54,10 @@
 		<button id="test1">one 메서드</button>
 		<button id="test2">two 메서드</button>
 		<button id="test3">three 메서드</button>
-		<button id="test4">four 메서드</button>
+		<br>
 
+		<input type="checkbox" name="isChecked">
+		<button id="test4">four 메서드</button>
 	</div>
 </body>
 

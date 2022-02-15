@@ -20,6 +20,21 @@
 				$(this).removeClass('hover')
 			});
 
+			$('#b button').on('mouseenter', function(){
+				$(this).addClass('hover')
+			}).on('mouseleave', function(){
+				$(this).removeClass('hover')
+			});
+
+			$('#b button').on({
+				mouseenter: function(evt) {
+					$(this).addClass('hover');
+				},
+				mouseleave: function(evt) {
+					$(this).removeClass('hover')
+				}
+			});
+
 			
 		});
 	</script>
@@ -27,6 +42,20 @@
 
 <body>
 	<div class="cord-body" id="a">
+		<button class="default">CEO</button>
+		<button class="default">회사소개</button>
+		<button class="default">사업영역</button>
+		<button class="default">제품소개</button>
+	</div>
+
+	<div class="cord-body" id="b">
+		<button class="default">CEO</button>
+		<button class="default">회사소개</button>
+		<button class="default">사업영역</button>
+		<button class="default">제품소개</button>
+	</div>
+
+	<div class="cord-body" id="c">
 		<button class="default">CEO</button>
 		<button class="default">회사소개</button>
 		<button class="default">사업영역</button>
