@@ -10,8 +10,46 @@
 		$(document).ready(function () {
 			// http://sample.bmaster.kro.kr/contacts
 			
+			/*
+			$.get('http://sample.bmaster.kro.kr/contacts', {pageno:1, pagesize:10}, function(data){
+				// console.log(data);
+				data.contacts.forEach(function(item, index){
+					var temp = '<tr>'
+					temp += '<td>' + item.no + '</td>';
+					temp += '<td>' + item.name + '</td>';
+					temp += '<td>' + item.tel + '</td>';
+					temp += '<td>' + item.address + '</td>';
+					temp += '<td><img src="' + item.photo + '" alt="증명사진" width="50px"></td>';
+					temp += '</tr>';
+
+					$(temp).appendTo('#container')
+				});
+			});
+			*/
+			$.ajax({
+				mathod: 'GET', 
+				url: 'http://sample.bmaster.kro.kr/contacts',
+				data: {pageno:1, pagesize:10},
+				success: function(data) {
+					data.contacts.forEach(function(item, index){
+						var temp = '<tr>'
+						temp += '<td>' + item.no + '</td>';
+						temp += '<td>' + item.name + '</td>';
+						temp += '<td>' + item.tel + '</td>';
+						temp += '<td>' + item.address + '</td>';
+						temp += '<td><img src="' + item.photo + '" alt="증명사진" width="50px"></td>';
+						temp += '</tr>';
+
+						$(temp).appendTo('#container')
+					});
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			})
 		});
 	</script>
+
 </head>
 
 <body>
@@ -26,6 +64,7 @@
 						<td>Name</td>
 						<td>TEL</td>
 						<td>Address</td>
+						<td>Photo</td>
 					</tr>
 				</thead>
 
