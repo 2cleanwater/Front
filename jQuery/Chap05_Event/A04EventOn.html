@@ -37,12 +37,81 @@
 
 			function makeTemplate(){
 				
+				// 1. 사용자가 선택한 값을 뽑아온다
+				var result = $('#region > option:selected').val();
+
+				// 2. 위의 data와 사용자가 선택한 값과 매칭되는 값만 mekeData 배열에 추가(걸러내는 작업)
+				var makeData = [];
+				data.forEach(function(item, index){
+					if(result === 'all') {
+						makeData = data;
+					} else {
+						makeData = data.filter(function(value, index){
+							if(value.region === result) return true
+						});
+					}
+				});
+				// console.log(makeData);
+
+
+				// 만들기 전에 기존에 tbody에 있던 모든 tr을 삭제하고 아래에 만들어지는
+				// 요소로 출력
+				$('#list').empty();
+
+
+				// 3. 걸러진 makeData를 기반으로 동적 TR을 생성하자
+				// 기존 template이 있으니 그 텍스트를 이용해서 생성
+				makeData.forEach(function(item, index){
+					var temp = template;
+					// 3-1. ${XXX} => 실질적인 뷰 데이터로 변경
+					// item => { no: 14, name: "멕시코", capital: "멕시코시티", region: "america" },
+					var dom = temp.replace('${name}', item.name)
+						.replace('${capital}', item.capital)
+						.replace('${no}', item.no)		// .appendTo('#list') => error
+
+					// <div>17</div>.appendTo('#list')
+					// replace('<div>${no}</div>', item.no).appendTo('#list')		// error
+
+					// $('list').append('<div>17</div>')		// OK
+
+					// dom 변수의 값은 일반 text 
+					// console.log(dom);
+
+					// 3-2. 한 줄 완성했을대마다 tbody(#list) 하단에 추가
+					// $('요소명').append(일반텍스트);
+					$('#list').append(dom);
+
+					// $(일반텍스트).appendTo('요소명') => 앞의 text를 jQuery 객체로 변경해야 한다
+					// dom.appendTo('#list'); => 이건 에러
+					// $(dom).appendTo('#list');
+				})
 			}
 
 			makeTemplate();
 
+
 			$("#inquery").on("click", function(e){
-					
+				makeTemplate();
+			});
+
+
+
+
+			// Event 위임. 이벤트를 할당할 상위 요소에 이벤트를 기술
+			// on 두번째 매개변수가 상위 요소가 전달한 이벤트를 위임 받아서 실행할 요소
+			$('#list').on('click', 'button', '이벤트 객체의 data 속성에 전달할 값', function(evt) {
+				console.log(this);
+				// console.log(evt);
+
+				var no = Number( $(this).data('no') );
+				var value = data[no - 1];
+
+				var view = '<div>No: ' + value.no + ' &nbsp; &nbsp; ';
+				view += 'Name: ' + value.name + ' &nbsp; &nbsp; ';
+				view += 'Capital: <b>' + value.capital + '</b></div>';
+
+				$('#result').html(view);
+
 			})
             
 		});
@@ -79,6 +148,9 @@
 
 			</tbody>
 		</table>
+
+
+		<div id="result"></div>
 	</div>
 </body>
 
