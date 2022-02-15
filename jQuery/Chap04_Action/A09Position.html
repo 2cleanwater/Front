@@ -10,12 +10,27 @@
 		div#outer { border:solid 1px black; background-color: yellow; width:300px; height:500px; padding: 10px 10px 10px 10px;
 			position:fixed; top: 0px; left:0px; }
 		div#inner { border:solid 1px black; background-color: orange; width:300px; height:500px; padding: 10px 10px 10px 10px;
-            position:fixed; top:0px; left:300px; }
+            position:fixed; top:0px; left:0px; }
 	</style>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			$('#outer').offset({left: 100, top: 0});
 
+			var outer = $('#outer');
+			$('#inner').offset({left: (outer.outerWidth() + outer.offset().left), top: 0});
+
+			$('#outer button').click(function(){
+				$(this).parent().hide();
+
+				if( $('#inner').is(':visible') ) {
+					$('#inner').offset({left: 0, top: 0});
+				}
+			});
+
+			$('#inner button').click(function(){
+				$(this).parent().hide();
+			});
 		});
 	</script>
 </head>
