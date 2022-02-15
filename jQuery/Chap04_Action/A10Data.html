@@ -15,6 +15,20 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            $('#nations > tbody > tr').mouseenter(function(evt){
+                var no = $(this).data("no");
+                var region = $(this).data('region');
+
+                console.log(no, region);
+                $('#result').html('지역 코드 <b>' + no + '</b> => ' + region);
+            });
+
+            $('#btn').click(function(evt){
+                $('#sample').attr('data-no', '100');
+                $('#sample').attr('data-region', 'Asia');
+            });
+
+
         });
     </script>
 </head>
