@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <title>XMLHttpRequest</title>
+    <script type="text/javascript">
+        
+        var baseURL = 'http://sample.bmaster.kro.kr/contacts';
+
+        function getContactList() {
+            $.ajax({
+                mathod: 'GET', 
+                url: baseURL,
+                data: {pageno:1, pagesize:5},
+                success: function(data) {
+                    
+                    $('#tbody').empty();
+
+                    data.contacts.forEach(function(item, index){
+                        var temp = '<tr>'
+                        temp += '<td>' + item.no + '</td>';
+                        temp += '<td><a href="#">' + item.name + '</a></td>';
+                        temp += '<td>' + item.tel + '</td>';
+                        temp += '<td>' + item.address + '</td>';
+                        temp += '<td><img src="' + item.photo + '" alt="증명사진" width="50px"></td>';
+                        temp += '</tr>';
+
+                        $(temp).appendTo('#tbody')
+                    });
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        };
+
+
+        $(document).ready(function(){
+            getContactList();
+
+            // Event 위임
+            $('tbody').on('click', 'tr', '', function(evt){
+                var no = $(this).find('td').first().text();
+                // console.log(no);
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://sample.bmaster.kro.kr/contacts/' + no,
+                    success: function(data) {
+                        $('#getContactM input[name="name"]').val(data.name);
+                        $('#getContactM input[name="tel"]').val(data.tel);
+                        $('#getContactM input[name="address"]').val(data.address);
+
+                        $('#getContactM').attr('data-no', no);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+
+                $('#getContactM').modal('show');
+            });
+
+
+            $('#addBtn').on('click', function(evt){
+                $('#addContactM').modal('show');
+            });
+
+
+            $('#saveBtn').on('click', function(evt){
+                var name = $('input[name="name"]').val();
+                var tel = $('input[name="tel"]').val();
+                var address = $('input[name="address"]').val();
+
+                $.ajax({
+                    method: 'post',
+                    url: baseURL,
+                    data: {name: name, tel: tel, address: address},
+                    success: function(data) {
+                        $('#addContactM').modal('hide');
+                        getContactList();
+                    },
+                    error: function(error) {
+                        console.log(error.status);
+                    }
+                })
+            });
+
+
+            $('#deleteBtn').on('click', function(evt){
+                var no = $('#getContactM').data('no');
+
+                $.ajax({
+                    method: 'delete',
+                    url: 'http://sample.bmaster.kro.kr/contacts/' + no,
+                    success: function(data) {
+                        $('#addContactM').modal('hide');
+                        $('#getContactM').removeAttr('data-no')
+                        getContactList();
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="card-body">
+        <h2>jQuery</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Tel</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colSpan="4">
+                        <button class="btn btn-primary" id="addBtn">ADD</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <div class="modal fade" id="addContactM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Name: <input type="text" class="form-control" name="name" />
+                    Tel: <input type="text" class="form-control" name="tel" />
+                    Address: <input type="text" class="form-control" name="address" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="getContactM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get Contact</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Name: <input type="text" class="form-control" name="name" />
+                    Tel: <input type="text" class="form-control" name="tel" />
+                    Address: <input type="text" class="form-control" name="address" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  data-dismiss="modal" id="deleteBtn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
