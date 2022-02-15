@@ -12,6 +12,22 @@
 				return "<h1>" + (new Date()).toLocaleTimeString() + "</h1>";
 			}
 
+			$('#savehtml').click(function(){
+				$('#content').html( createTimeString() );
+			});
+			$('#readhtml').click(function(){
+				var result = $('#content').html();
+				console.log(result);
+			});
+
+			$('#savetext').click(function(){
+				$('#content').text( createTimeString() );
+			});
+			$('#readtext').click(function(){
+				var result = $('#content').text();
+				console.log(result);
+			});
+
 		});
 	</script>
 </head>

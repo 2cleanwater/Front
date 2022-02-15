@@ -12,8 +12,20 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			var result = '<h3>Hello World</h3>'
 
+			$('#content1').append(result);		// 지정한 컨텐츠 내부 맨 뒤에 삽입
+			$('#content1').prepend(result);		// 지정한 컨텐츠 내부 맨 앞에 삽입
 
+			$('#content1').before(result);		// 지정한 컨텐츠 밖 위에 삽입
+			$('#content1').after(result);		// 지정한 컨텐츠 빡 뒤에 삽입
+
+			// 값이 먼저오는 경우
+			$(result).appendTo('#content2');
+			$(result).prependTo('#content2')
+
+			$(result).insertAfter('#content2');
+			$(result).insertBefore('#content2')
 		});
 	</script>
 </head>
@@ -21,10 +33,14 @@
 <body>
 	<div class="card-body">
 		<div id="container1">
+			<!-- before -->
 			<div id="content1">
+				<!-- prepend -->
 				<div>기존 컨텐트</div>
 				<div>기존 컨텐트</div>
+				<!-- append -->
 			</div>
+			<!-- after -->
 		</div>
 		
 		<div id="container2">

@@ -11,13 +11,23 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			var result = '<div class="test">Hello World</div>'
+			result += '<div class="test">Hi~ NolBu</div>';
 
+			var dom = $(result);
+			// console.log(result);
+			dom.last().css('color', 'white');
+			$('#content').html(dom);
+
+			// var content = $('#content').html(result);
+			// console.log(content);
+			// content.find('div').last().css('color', 'white');
 		});
 	</script>
 </head>
 
 <body>
-	<div class="card-body" id="content"></div>
+	<div class="card-body" id="content">ABC</div>
 </body>
 
 </html>
