@@ -1,6 +1,9 @@
 
 import React, { useState } from 'react'
 
+// useRef()으로 변경
+let cnt = 4;
+
 function A04CreateDOM() {
     const baseArray = ['NC', '두산', '엘지', 'KT', '키움'];
 
@@ -16,7 +19,14 @@ function A04CreateDOM() {
         isChecked: false,
     });
 
-    const changeTeam = (evt) => setData( {...data, teamOne: evt.target.value} )
+    const changeTeam = (evt) => setData( {...data, [evt.target.name]: evt.target.value} )
+    const addArray = () => baseArray.push('한화');
+    const showHide = () => setData( {...data, isChecked: !data.isChecked} )
+    
+    const addTeam = () => {
+        const data = {id: cnt++, team: '한화', value: 'Hanwa'};
+        setBaseObject( baseObject.concat( data ) );
+    }
 
     return (
         <div>
@@ -33,7 +43,7 @@ function A04CreateDOM() {
             </select>
 
             SelectBox: {data.teamTwo}<br/>
-            <select name="teamTwo" className="form-control">
+            <select name="teamTwo" className="form-control" onChange={changeTeam}>
                 <option value="">선택해주세요</option>
                 { baseObject.map( item => {
                     return <option value={item.value} key={item.id}>{item.team}</option>
@@ -47,20 +57,29 @@ function A04CreateDOM() {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    { baseObject.map( (item) => {
+                        return (
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td>{item.team}</td>
+                                <td>{item.value}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
 
-            
+            {/* ||, &&  연산자로도 사용한다 */}
+            { data.isChecked && 
                 <div className="input-group">
                     <input type="text" className="form-control" />
-                    <button className="btn btn-outline-primary btn-sm">ADD</button>
+                    <button className="btn btn-outline-primary btn-sm" onClick={addArray}>ADD</button>
                 </div>
-            
+            }
             <br />
             
-            <button className="btn btn-outline-primary btn-sm">ADD TEAM</button>
-            <button className="btn btn-outline-primary btn-sm">{data.isChecked ? 'HIDE' : 'SHOW'}</button>
+            <button className="btn btn-outline-primary btn-sm" onClick={addTeam}>ADD TEAM</button>
+            <button className="btn btn-outline-primary btn-sm" onClick={showHide}>{data.isChecked ? 'HIDE' : 'SHOW'}</button>
         </div>
     )
 }
