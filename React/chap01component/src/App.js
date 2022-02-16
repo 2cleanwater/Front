@@ -2,7 +2,8 @@ import {useState} from 'react'
 
 import './../node_modules/bootstrap/dist/css/bootstrap.css';
 import A01Props from './components/A01Props';
-import A02State from './components/A02State'
+import A02State from './components/A02State';
+import A04CreateDOM from './components/A04CreateDOM';
 
 function App() {
   // useState로 정의된 변수는 값이 변경되면 변경된 값으로 화면 갱신을 한다
@@ -27,6 +28,11 @@ function App() {
       <div className='col-12'>
         <h1>Component</h1>
       </div>
+
+      <div className='col-12'>
+        <A04CreateDOM />
+      </div>
+      <br />
 
       <div className='col-12'>
         <A02State name={name} age={age} />
