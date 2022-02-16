@@ -80,6 +80,7 @@ export default App
 
 import './App.css';
 import A01Comp from './components/A01ClassComp';
+import A02Comp from './components/A02FuncComp';
 
 function App() {
   return (
@@ -89,7 +90,7 @@ function App() {
       <div>안녕하세요. 리엑트입니다.</div>
 
       <A01Comp></A01Comp>
-      <div></div>
+      <A02Comp></A02Comp>
 
     </div>
   );
