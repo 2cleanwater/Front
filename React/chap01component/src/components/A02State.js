@@ -31,12 +31,41 @@ function A02State(props) {
   
   // 배열 조작(리퍼런스 형)
   const addArray = () => {
-      const num = Math.ceil( Math.random() + 100 );
+      const num = Math.ceil( Math.random() * 100 );
     //   setArr( arr.push(num) );       // Error
     setArr( arr.concat(num) );
   };
+  const updateArray = (index, value) => {
+    //   setArr( arr[index] = value );          // Error
+    // const data = arr.map( (item, i) => index === i ? value : item )
+    const data = arr.map( (item, i) => {
+        if(index === i) return value;
+        else return item;
+    });
+    setArr(data);
+  }
+  const deleteArray = (index) => {
+      const data = arr.filter( (item, i) => index !== i ? true : false );
+      setArr(data);
+  }
 
-  
+  const addObject = (key, value) => {
+    //   obj[key] = value;
+    const data = {...obj, [key]: value };
+    setObj(data);
+  }
+
+  const updateObject = (key, value) => {
+    const data = {...obj, [key]: value };
+    setObj(data);
+  }
+
+  const deleteObject = (key) => {
+    delete obj[key];
+    const data = {...obj}
+    setObj(data);
+  }
+
 
   return (
     <div>
@@ -58,18 +87,23 @@ function A02State(props) {
         </div>
 
         <div>
+            { arr.map( (item, index) => <span key={index}>{item} </span>) }
+        </div>
+
+        <div>
             <button onClick={changeUser}>User</button>
             <button onClick={ () => changeNum(20) }>Num</button>
             <button onClick={changeCheck}>Check</button>
             <br />
 
             <button onClick={addArray}>Add Array</button>
-            <button>Update Array</button>
-            <button>Delete Array</button>
-
-            <button>Add Object</button>
-            <button>Update Object</button>
-            <button>Delete Object</button>
+            <button onClick={ () => updateArray(1, 200) }>Update Array</button>
+            <button onClick={ () => deleteArray(0) }>Delete Array</button>
+            <br />
+            
+            <button onClick={ () => addObject('address', 'Seoul') }>Add Object</button>
+            <button onClick={ () => updateObject('address', 'Busan') }>Update Object</button>
+            <button onClick={ () => deleteObject('address') }>Delete Object</button>
         </div>
     </div>
   )
