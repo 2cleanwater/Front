@@ -24,11 +24,19 @@ function A02State(props) {
   });
 
   // 함수
+  // 값 조작 (기본형)
   const changeUser = (evt) => setUser('BangJa');
   const changeNum = (n) => setNum(n);
   const changeCheck = () => setCheck( !check );
   
+  // 배열 조작(리퍼런스 형)
+  const addArray = () => {
+      const num = Math.ceil( Math.random() + 100 );
+    //   setArr( arr.push(num) );       // Error
+    setArr( arr.concat(num) );
+  };
 
+  
 
   return (
     <div>
@@ -51,11 +59,11 @@ function A02State(props) {
 
         <div>
             <button onClick={changeUser}>User</button>
-            <button onClick={ (evt) => changeNum(20) }>Num</button>
+            <button onClick={ () => changeNum(20) }>Num</button>
             <button onClick={changeCheck}>Check</button>
             <br />
-            
-            <button>Add Array</button>
+
+            <button onClick={addArray}>Add Array</button>
             <button>Update Array</button>
             <button>Delete Array</button>
 
