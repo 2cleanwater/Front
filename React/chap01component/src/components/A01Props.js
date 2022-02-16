@@ -4,7 +4,7 @@ import React from 'react'
 
 function A01Props(props) {          // props는 React가 주입해 주는 참조 변수
 
-  const { comp, name, age, ary, obj, onAdd, changeName, num } = props;
+  const { comp, name, age, ary, obj, onAdd, changeName, changeAge, num } = props;
   
   return (
     <div>
@@ -19,6 +19,7 @@ function A01Props(props) {          // props는 React가 주입해 주는 참조
             onAdd: {props.onAdd(10, 20)}<br />
             Num: {props.num * 100}<br />
             <button className='btn btn-primary btn-sm' onClick={changeName}>Change Name</button>
+            <button className='btn btn-danger btn-sm' onClick={changeAge}>Change Age</button>
         </div>
 
         <hr />
