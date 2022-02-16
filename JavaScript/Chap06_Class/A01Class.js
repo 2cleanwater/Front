@@ -39,7 +39,7 @@ class JumsuClz {
     onTotal() {
         return this.kor + this.eng;
     };
-    onAvg(num) {
+    onAvg (num) {
         return this.onTotal() / num;
     }
 
