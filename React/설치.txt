@@ -1,11 +1,11 @@
 1. npm 프로그램 설치
 2. 새로운 도스창 열기 (cmd)
-3. npm install -g create-react-app
+3. npm install -g create-react-app  (재 설치)
 
 
 프로젝트 만들기
     1. create-react-app 프로젝트이름
-        create-react-app template
+        create-react-app template   (새롭게 생성)
 
 실행
     cd template

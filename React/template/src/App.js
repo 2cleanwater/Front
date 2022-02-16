@@ -1,3 +1,12 @@
+
+function App() {
+  return <h1>Hello World</h1>
+}
+
+// 외부 javascript 파일에서 사용할 수 있도록 출력
+export default App 
+
+/*
 import logo from './logo.svg';
 import './App.css';
 
@@ -23,3 +32,4 @@ function App() {
 }
 
 export default App;
+*/
