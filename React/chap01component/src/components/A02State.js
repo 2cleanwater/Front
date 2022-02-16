@@ -23,6 +23,13 @@ function A02State(props) {
       age: 20
   });
 
+  // 함수
+  const changeUser = (evt) => setUser('BangJa');
+  const changeNum = (n) => setNum(n);
+  const changeCheck = () => setCheck( !check );
+  
+
+
   return (
     <div>
         <h3>A02 State</h3>
@@ -40,6 +47,21 @@ function A02State(props) {
             Check: {check ? '동의' : '동의 안함'}<br />
             Array: {arr[0]} / {arr[1]} / {arr[5]}<br />
             Object: {obj.name} / {obj.age} / {obj.address}<br />
+        </div>
+
+        <div>
+            <button onClick={changeUser}>User</button>
+            <button onClick={ (evt) => changeNum(20) }>Num</button>
+            <button onClick={changeCheck}>Check</button>
+            <br />
+            
+            <button>Add Array</button>
+            <button>Update Array</button>
+            <button>Delete Array</button>
+
+            <button>Add Object</button>
+            <button>Update Object</button>
+            <button>Delete Object</button>
         </div>
     </div>
   )
