@@ -7,6 +7,7 @@ import A04CreateDOM from './components/A04CreateDOM';
 import A05Hook from './components/A05Hook';
 import A06Currency from './components/A06Currency'
 import A07Style from './components/A07Style'
+import A08StyleModule from './components/A08StyleModule'
 
 function App() {
   // useState로 정의된 변수는 값이 변경되면 변경된 값으로 화면 갱신을 한다
@@ -31,6 +32,16 @@ function App() {
       <div className='col-12'>
         <h1>Component</h1>
       </div>
+
+      <div className='col-12'>
+        <A08StyleModule />
+      </div>
+      <br />
+
+      <div className='col-12'>
+        <A07Style />
+      </div>
+      <br />
 
       <div className='col-12'>
         <A06Currency />
