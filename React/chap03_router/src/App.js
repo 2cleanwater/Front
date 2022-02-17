@@ -1,6 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.css';
 // npm i bootstrap@4
+// npm un react-router  => 삭제
 // npm i react-router react-router-dom
 // npm i react-loader-spinner
 
@@ -18,10 +19,12 @@ function App() {
       <h1>Router</h1>
 
       {/* Route가 기술된 영역에 지정한 컴퍼넌트가 표시된다 */}
-      <Route path='/index'    render={ () => <div>
-                                        <h3>Index Page</h3>
-                                        <div>Hello World</div>
-                                      </div>} />
+
+      <Route path="/"     render={ () => <div>
+                              <h1>Index Page</h1>
+                              <div>Hello World</div>
+                            </div>} />
+
     </div>
   );
 }
