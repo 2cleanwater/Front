@@ -28,6 +28,11 @@ const TodoTemplate = () => {
         });
         setTodoList(todos);
     }
+
+    const deleteTodo = (id) => {
+        const data = todoList.filter( todo => todo.id !== id ? true : false );
+        setTodoList(data);
+    }
     
 
     return (
@@ -36,7 +41,7 @@ const TodoTemplate = () => {
 
             <TodoForm />
             <hr />
-            <TodoList todoList={todoList} updateTodo={updateTodo} />
+            <TodoList todoList={todoList} updateTodo={updateTodo} deleteTodo={deleteTodo} />
         </div>
     )
 }

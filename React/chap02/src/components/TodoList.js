@@ -6,7 +6,7 @@ import TodoListItem from './TodoListItem'
 
 function Todolist(props){
     
-    const { todoList, updateTodo } = props;
+    const { todoList, updateTodo, deleteTodo } = props;
 
     return (
         <div>
@@ -21,7 +21,7 @@ function Todolist(props){
                 </thead>
                 <tbody>
                     { todoList.map( item => <TodoListItem 
-                        todo={item} updateTodo={updateTodo} key={item.id} /> )}
+                        todo={item} updateTodo={updateTodo} deleteTodo={deleteTodo} key={item.id} /> )}
                 </tbody>
             </table>
         </div>
