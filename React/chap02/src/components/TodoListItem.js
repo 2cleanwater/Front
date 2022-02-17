@@ -2,12 +2,14 @@
 import React from 'react'
 import './css/todos.css'
 
-function TodoListItem() {
+function TodoListItem( props ) {
+
+    const { todo } = props;
 
     return (
         <tr>
-            <td></td>
-            <td><span></span></td>
+            <td>{todo.id}</td>
+            <td><span>{todo.text}</span></td>
             <td>
                 <button className="btn btn-primary">Complete</button>
             </td>

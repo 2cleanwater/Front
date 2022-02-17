@@ -1,6 +1,8 @@
 // npm i bootstrap@4
 import 'bootstrap/dist/css/bootstrap.css';
 
+import TodoTemplate from './components/TodoTemplate'
+
 function App() {
   return (
     <div className="container">
@@ -9,7 +11,7 @@ function App() {
       </div>
       
       <div className="col-12">
-
+        <TodoTemplate />
       </div>
     </div>
   );
