@@ -4,14 +4,14 @@ import './css/todos.css'
 
 function TodoListItem( props ) {
 
-    const { todo } = props;
+    const { todo, updateTodo } = props;
 
     return (
         <tr>
             <td>{todo.id}</td>
-            <td><span>{todo.text}</span></td>
+            <td><span className={todo.done ? 'done' : ''}>{todo.text}</span></td>
             <td>
-                <button className="btn btn-primary">Complete</button>
+                <button className="btn btn-primary" onClick={ ()=> updateTodo(todo.id) }>Complete</button>
             </td>
             <td>
                 <button className="btn btn-danger">Delete</button>
