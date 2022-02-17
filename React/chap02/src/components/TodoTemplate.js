@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
@@ -34,12 +34,18 @@ const TodoTemplate = () => {
         setTodoList(data);
     }
     
+    // 증가 변수
+    const cnt = useRef(6);
+    const addTodo = (text) => {
+        const todo = {id: cnt.current++, text, done: false};
+        setTodoList( todoList.concat(todo) );
+    }
 
     return (
         <div>
             <h3>Todo List</h3>
 
-            <TodoForm />
+            <TodoForm addTodo={addTodo} />
             <hr />
             <TodoList todoList={todoList} updateTodo={updateTodo} deleteTodo={deleteTodo} />
         </div>
