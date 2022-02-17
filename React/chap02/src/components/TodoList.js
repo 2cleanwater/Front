@@ -20,8 +20,9 @@ function Todolist(props){
                     </tr>
                 </thead>
                 <tbody>
-                    { todoList.map( item => <TodoListItem 
-                        todo={item} updateTodo={updateTodo} deleteTodo={deleteTodo} key={item.id} /> )}
+                    { todoList.map( (item, index) => <TodoListItem 
+                        todo={item} updateTodo={updateTodo} deleteTodo={deleteTodo}
+                        index={index} key={item.id} /> )}
                 </tbody>
             </table>
         </div>

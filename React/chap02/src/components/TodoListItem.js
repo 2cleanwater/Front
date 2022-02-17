@@ -4,11 +4,11 @@ import './css/todos.css'
 
 function TodoListItem( props ) {
 
-    const { todo, updateTodo, deleteTodo } = props;
+    const { todo, updateTodo, deleteTodo, index } = props;
 
     return (
         <tr>
-            <td>{todo.id}</td>
+            <td>{todo.id} / {index + 1}</td>
             <td><span className={todo.done ? 'done' : ''}>{todo.text}</span></td>
             <td>
                 <button className="btn btn-primary" onClick={ ()=> updateTodo(todo.id) }>Complete</button>
