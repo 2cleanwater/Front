@@ -15,6 +15,7 @@ import A01FunctionProps from './components/A01FunctionProps'
 import A02FunctionState from './components/A02FunctionState'
 import A03Currency from './components/A03Currency'
 import A04History from './components/A04History'
+import A05MatchParam from './components/A05MatchParam'
 
 function App() {
   const user = {name: 'HungBu', age: 20};
@@ -33,6 +34,8 @@ function App() {
         <Link to="/state">State</Link> | {' '}
         <Link to="/currency">Currency</Link> | {' '}
         <Link to="/history">History</Link> | {' '}
+        <Link to="/params/5/data/NolBu">NolBu</Link> | {' '}
+        <Link to="/params/3/data/HungBu">HungBu</Link> | {' '}
       </div>
 
       <hr />
@@ -51,6 +54,9 @@ function App() {
       <Route path="/state"      component={A02FunctionState} />
       <Route path="/currency"   component={A03Currency} />
       <Route path="/history"    component={A04History} />
+
+      {/* path/:no => no는 임의의 이름이 들어올 수 있는 패스 이름이 되면서 변수명 역할을 한다  */}
+      <Route path="/params/:no/data/:name"     component={A05MatchParam} />
 
     </div>
   );

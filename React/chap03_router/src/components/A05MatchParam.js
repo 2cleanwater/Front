@@ -1,7 +1,10 @@
 
 import React from 'react';
 
-const A03ParamComponent = () => {
+const A03ParamComponent = ( props ) => {
+
+    const { match } = props;
+    // console.log(match);
 
     const data = [
         { "id": 1, "name": "Apples", "category": "Fruit", "price": 1.20, "expiry": 10 },
@@ -19,8 +22,8 @@ const A03ParamComponent = () => {
             <br />
 
             <div>
-                Id: <br/>
-                Name: <br/>
+                Id: {match.params.no}<br/>
+                Name: {match.params.name}<br/>
                 Location: 
             </div>
             <br />
