@@ -10,7 +10,7 @@ const A02ProductComponent = ( props ) => {
     }
     const forward = () => history.goForward();
     const home = () => history.push('/');           // route의 path 이름을 지정
-    const assign = (url) => history.push(url);
+    const assign = (url) => history.push(url);      // location.assign('/index.html');
 
     return (
         <div>
@@ -22,7 +22,7 @@ const A02ProductComponent = ( props ) => {
                 <button onClick={back}>BACK</button>
                 <button onClick={forward}>FORWARD</button>
                 <button onClick={home}>HOME</button>
-                <button onClick={ () => assign('/currency') }>PARAMETER</button>
+                <button onClick={ (evt) => assign('/currency') }>PARAMETER</button>
             </div>
         </div>
     )

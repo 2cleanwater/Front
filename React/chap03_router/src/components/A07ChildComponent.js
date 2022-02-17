@@ -11,21 +11,25 @@ const A05ChildComponent = () => {
             <br />
             
             <div>
-                <Link to="/A07Child">ONE</Link> | &nbsp; 
-                <Link to="/A07Child/two/100"> TWO</Link> |  &nbsp;
-                <Link to="/A07Child/three"> THREE</Link>
+                <Link to="/child">ONE</Link> | &nbsp; 
+                <Link to="/child/two/100"> TWO</Link> |  &nbsp;
+                <Link to="/child/three"> THREE</Link>
             </div>
             
             <hr />
 
-            <Route path="/A07Child"    exact       render={ () => (
+            {/* 상위 패스의 하위 패스 형태가 된다. 
+                상위가 /child 의 경우 자식라우츠에서 path를 동일 이름으로 기술하면 기본 값으로 출력
+            */}
+            <Route path="/child"    exact       render={ () => (
                 <div>
                     <h6>ONE Component</h6>
                     <div>This is one Component</div>    
                 </div>
             )} />
 
-            <Route path="/A07Child/two/:id"        render={ ({match}) => (
+            {/* 상위 path가 /child 이므로 항상 /child/하위패스명 형태로 기술해야 한다 */}
+            <Route path="/child/two/:id"        render={ ({match}) => (
                 <div>
                     <h6>TWO Component</h6>
                     <div>This is two Component</div>
@@ -37,7 +41,7 @@ const A05ChildComponent = () => {
                 </div>
             )} />
 
-            <Route path="/A07Child/three"          render={ () => (
+            <Route path="/child/three"          render={ () => (
                 <div>
                     <h6>THREE Component</h6>
                     <div>This is three Component</div>    

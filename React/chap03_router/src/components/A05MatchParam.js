@@ -14,6 +14,8 @@ const A03ParamComponent = ( props ) => {
         { "id": 5, "name": "Salmon", "category": "Fish", "price": 17.93, "expiry": 2 },
         { "id": 6, "name": "Trout", "category": "Fish", "price": 12.93, "expiry": 4 }
     ];
+
+    const product = data[match.params.no - 1];
     
     return (
         <div>
@@ -27,6 +29,11 @@ const A03ParamComponent = ( props ) => {
                 Location: 
             </div>
             <br />
+
+            <div>
+                Id: {product.id}<br />
+                Name: {product.name}
+            </div>
 
         </div>
     )
