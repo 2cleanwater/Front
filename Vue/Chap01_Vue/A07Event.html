@@ -18,14 +18,15 @@
         <br>
 
         Num: {{num}}<br>
-        <button>+1</button>
-        <button>-1</button>
-        <button>once</button>
+        <button v-on:click="num = num + 2">+1</button>
+        <button @click="decrease">-1</button>
+        <button @click.once="decrease">once</button>    <!-- once가 붙으면 1번만 실행됨 -->
 
-        <button >Key</button>
+        <!-- shift, alt, ctrl, meta(window, mac) / left, right, middle-->
+        <button @click.meta="decrease">Key</button>
 
-        <button>Event</button>
-        <button>Event</button>
+        <button @click="increase">Event</button>    <!-- Event 객체가 전달된다 -->
+        <button @click="increase(3)">Event</button>
         <br>
         <br>
         
@@ -57,7 +58,12 @@
                 msg: ''
             },
             methods: {
-                
+                decrease: function() {
+                    this.num--;
+                },
+                increase: function(n) {
+                    this.num = this.num + n;
+                } 
             },
         })
     </script>
