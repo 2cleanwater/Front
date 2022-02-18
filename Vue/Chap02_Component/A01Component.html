@@ -19,7 +19,38 @@
         
         <comptwo></comptwo>
         <comptwo></comptwo>
+
+        <comp-three></comp-three>
+
+        <hr>
+
+        <comp-four></comp-four>
     </div>
+
+    <template id="three">
+        <div>
+            <h3>Template Three</h3>
+            <div>템플릿입니다</div>
+        </div>
+    </template>
+    <script type="text/javascript">
+        Vue.component('compThree', {
+            template: '#three'
+        })
+    </script>
+
+    <template id="four">
+        <div>
+            <comp-one></comp-one>
+            <comptwo></comptwo>
+            <comp-three />
+        </div>
+    </template>
+    <script type="text/javascript">
+        Vue.component('compFour', {
+            template: '#four'
+        })
+    </script>
 
     <script type="text/javascript">
         // 이름이 카멜 표시법으로 기술했으면 HTML에서는 - 표기법으로 변경한다
@@ -43,6 +74,9 @@
             }
         });
         
+        // Vue.component('compThree', {
+        //     template: '#three'
+        // })
 
         var app = new Vue({
             el: '#app'
