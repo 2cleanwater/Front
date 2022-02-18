@@ -15,60 +15,60 @@
 
         <form>
             Text Field: <span class="orange">{{data.name}}</span>
-            <input type="text" class="form-control"><br>
+            <input type="text" class="form-control" v-model="data.name"><br>
 
             Number Field: <span class="orange">{{data.age + 10}}</span>
-            <input type="text" class="form-control"><br>
+            <input type="text" class="form-control" v-model.number="data.age"><br>
 
             Lazy Field: <span class="orange">{{data.address}}</span>
-            <input type="text" class="form-control"><br>
+            <input type="text" class="form-control" v-model.lazy="data.address"><br>
 
 
             Radio Button: <span class="orange">{{data.gender}}</span><br>
-            <input type="radio" name="gender" value="남자">Male
-            <input type="radio" name="gender" value="여자">Female
-            <input type="radio" name="gender" value="어린이">Children <br>
+            <input type="radio" name="gender" value="남자"      v-model="data.gender">Male
+            <input type="radio" name="gender" value="여자"      v-model="data.gender">Female
+            <input type="radio" name="gender" value="어린이"    v-model="data.gender">Children <br>
             <br>
 
-            Single Check: <span class="orange">{{data.check}}</span><br>
-            <input type="checkbox" name="check">Agree<br>
+            Single Check: <span class="orange">{{data.check ? '동의' : '동의 안함'}}</span><br>
+            <input type="checkbox" name="check"     v-model="data.check">Agree<br>
             <br>
 
             CheckBox: <span class="orange">{{data.fruit}}</span><br>
-            <input type="checkbox" value="apple">사과,
-            <input type="checkbox" value="banana">바나나,
-            <input type="checkbox" value="melon">멜론<br>
+            <input type="checkbox" value="apple"        v-model="data.fruit">사과,
+            <input type="checkbox" value="banana"       v-model="data.fruit">바나나,
+            <input type="checkbox" value="melon"        v-model="data.fruit">멜론<br>
             <br>
 
             SelectBox: <span class="orange">{{data.inCurr}}</span><br>
-            <select class="form-control">
-                
+            <select class="form-control" v-model="data.inCurr">
+                <option v-for="item in currencies" :key="item">{{item}}</option>
             </select>
             <br>
 
             SelectBox Multi: <span class="orange">{{data.lang}}</span><br>
-            <select class="form-control" multiple>
-                
+            <select class="form-control" multiple   v-model="data.lang">
+                <option v-for="item in language" :key="item">{{item}}</option>
             </select>
             <br>
 
             TextArea: <span class="orange">{{data.comment}}</span>
-            <textarea cols="50" rows="5" class="form-control"></textarea>
+            <textarea cols="50" rows="5" class="form-control" v-model="data.comment"></textarea>
             <br>
 
 
-            Radio Button Object Value: <span class="orange">{{data.person}}</span><br>
-            <input type="radio" name="person">놀부
-            <input type="radio" name="person">흥부
-            <input type="radio" name="person">방자 <br>
+            Radio Button Object Value: <span class="orange">{{data.person}} / {{data.person.name}}</span><br>
+            <input type="radio" name="person"   :value="{name:'NolBu', age:30}"     v-model="data.person">놀부
+            <input type="radio" name="person"   :value="{name:'HungBu', age:25}"    v-model="data.person">흥부
+            <input type="radio" name="person"   :value="{name:'BangJa', age:20}"    v-model="data.person">방자 <br>
             <br>
 
 
             Text Field: <span class="orange">{{data.name}}</span>
-            <input type="text" class="form-control"><br>
+            <input type="text" class="form-control" ><br>
             <br>
 
-            <button type="submit">SEND</button>
+            <button type="submit" @click.prevent="sendData">SEND</button>
         </form>
 
     </div>
@@ -83,17 +83,26 @@
                     address: '',
                     gender: '남자',
                     check: true,
-                    fruit: ['apple'],
+                    fruit: ['apple', 'melon'],
                     inCurr: 'EUR',
-                    currencies: ['USD', 'EUR', 'CNY'],
-                    lang: ['한국어'],
-                    language: ['한국어', '영어', '프랑스어', '독일어', '스페인어'],
+                    lang: ['한국어', '프랑스어'],
                     comment: '',
                     person: {}
                 }
             },
             methods: {
-                
+                sendData: function() {
+                    // ajax 명령으로 this.data 전송
+                    console.log(this.data);
+                }
+            },
+            computed: {
+                currencies: function(){
+                    return ['USD', 'EUR', 'CNY'];
+                },
+                language: function(){
+                    return ['한국어', '영어', '프랑스어', '독일어', '스페인어'];
+                },
             }
         })
     </script>
