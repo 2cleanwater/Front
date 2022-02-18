@@ -13,12 +13,44 @@
     <div class="card-body" id="app">
         <h3>A02 Component</h3>
 
+        <comp></comp>
+
+        <hr>
+
+        <comp></comp>
         
     </div>
-    
+
+    <template id="temp">
+        <div>
+            <h3>Template</h3>
+            <div>
+                Name: {{name}}<br>
+                <button @click="changeName">Name</button>
+            </div>
+        </div>
+    </template>
+    <script type="text/javascript">
+        Vue.component('comp', {
+            template: '#temp',
+            data: function(){
+                return {
+                    name: 'NolBu'
+                }
+            },
+            computed: {},
+            methods: {
+                changeName: function() {
+                    this.name = '놀부';
+                }
+            }
+        })
+    </script>
 
     <script type="text/javascript">
-        
+        new Vue({
+            el: '#app'
+        })
     </script>
 </body>
 </html>

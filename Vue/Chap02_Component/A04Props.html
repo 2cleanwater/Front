@@ -6,18 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
-    <title>A02 Component Props</title>
+    <title>A04 Component Props</title>
 </head>
 <body>
 
     <div class="card-body" id="app">
         <h3>A04 Component Props</h3>
-
-        
+        <!-- HTML 속성 형태로 전달한 값은 문자열로 전달된다
+            속성명이 카멜 표기법이면 - 표기법으로 변경해서 전달한다.
+        -->
+        <comp-one name="NolBu" v-bind:age="30" :add="address" 
+            :user="user" :arr="ary" :on-plus="onPlus" is-checked></comp-one>
     </div>
-    
+
+    <template id="tempOne">
+        <div>
+            Name: {{name}}<br>
+            Age: {{age + 100}}<br>
+            Address: {{add}}<br>
+            User: {{user.name}} / {{user.age}} / {{user.address}}<br>
+            Array: {{arr[0]}} / {{arr[1]}} / {{arr[5]}}<br>
+            onPlus: {{onPlus(10, 20)}}<br>
+            isChecked: {{isChecked ? '동의' : '동의 안함'}}<br>
+        </div>
+    </template>
     <script type="text/javascript">
-        Vue.config.devtools = true
+        Vue.component('compOne', {
+            template: '#tempOne',
+            // 넘어오는 키 이름을 배열에 문자열로 정의한다.
+            props: ['name', 'age', 'add', 'user', 'arr', 'onPlus', 'isChecked'],
+            data: function(){
+                return {}
+            },
+            methods: {
+
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
         var app = new Vue({
             el: '#app',
             data: {
