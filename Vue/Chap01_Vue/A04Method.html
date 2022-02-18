@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <title>A04 Method</title>
+</head>
+<body>
+    <div class="card-body" id="app">
+        <h3>A04 Method</h3>
+
+        <div>
+            <h5>1. Method</h5>
+            onPlus: <br>
+            <br>
+            Name: {{name}}
+            <input type="text" name="name" class="form-control">
+            Num: {{num}}
+            <input type="text" name="num" class="form-control">
+        </div>
+        <br>
+
+        <div>
+            <h5>2. Computed</h5>
+            Computed: <br>
+            Methods: <br>
+            <br>
+            Computed Params: 
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'NolBu',
+                num: 10
+            },
+
+        })
+    </script>
+</body>
+</html>
