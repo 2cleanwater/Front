@@ -29,7 +29,7 @@
             <input type="text" class="form-control" v-model="name">
             <input type="text" class="form-control" :value="name" @input="changeName">
             Name: {{name}}<br>
-            <button @click="changeName('ABC')">Name</button>
+            <button @click="changeValue('ABC')">Name</button>
         </div>
         <br>
     </div>
@@ -45,6 +45,9 @@
             methods: {
                 changeName: function(evt) {
                     this.name = evt.target.value;
+                },
+                changeValue: function(str) {
+                    this.name = str;
                 }
             }
         })

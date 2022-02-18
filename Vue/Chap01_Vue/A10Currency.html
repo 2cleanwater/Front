@@ -12,14 +12,14 @@
     <div class="card-body" id="app">
         <h3>A10 Currency</h3>
 
-        Qty: <input type="text" class="form-control">
-        Cost: <input type="text" class="form-control">
+        Qty: <input type="text" class="form-control" v-model="qty">
+        Cost: <input type="text" class="form-control" v-model="cost">
         Country: 
             <select class="form-control">
                 
             </select>
         <br>
-        <div>Total: </div>
+        <div>Total: {{qty * cost}}</div>
         <div>Total: <span></span></div>
     </div>
 
@@ -27,7 +27,8 @@
         new Vue({
             el: '#app',
             data: {
-
+                qty: 3,
+                cost: 5
             },
             methods: {
                 
