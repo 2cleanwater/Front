@@ -13,9 +13,9 @@
         <h3>A05 Computed</h3>
 
         <div class="input-group">
-            <input type="text" name="searc" class="form-control">
-            <div class="input-group-append">
-                <button class="btn btn-primary">SEARCH</button>
+            <input type="text" name="search" class="form-control" ref="inputElem">
+            <div class="input-group-append" ref="divElem">
+                <button class="btn btn-primary" @click="changeName">SEARCH</button>
             </div>
         </div>
         <br>
@@ -26,7 +26,12 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <tr v-for="item in searchCountry">
+                    <td>{{item.no}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.capital}}</td>
+                    <td>{{item.region}}</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -58,10 +63,23 @@
             el: '#app',
             data: model,
             methods: {
-                
+                changeName: function() {
+                    console.log(this.$refs);
+                    var value = this.$refs.inputElem.value;
+                    this.countryname = value;
+                }
             },
             computed: {
-                
+                searchCountry: function() {
+                    let data = [];
+                    for(let i = 0; i < this.countries.length; i++) {
+                        let country = this.countries[i];
+                        if(country.name.indexOf(this.countryname) !== -1) {
+                            data.push(country);
+                        }
+                    }
+                    return data;
+                }
             },
             
         })
