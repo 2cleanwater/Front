@@ -24,7 +24,7 @@
     </div>
 
     <script type="text/javascript">
-        new Vue({
+        var app = new Vue({
             el: '#app',
             data: {
                 qty: 3,
@@ -60,7 +60,9 @@
             methods: {
                 
             }
-        })
+        });
+
+        console.log(app.qty * app.cost)
     </script>
 </body>
 </html>

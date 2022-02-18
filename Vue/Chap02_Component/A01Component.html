@@ -13,11 +13,40 @@
     <div class="card-body" id="app">
         <h3>A01 Component</h3>
 
+        <comp-one></comp-one>
+        <comp-one></comp-one>
+        <br>
         
+        <comptwo></comptwo>
+        <comptwo></comptwo>
     </div>
 
     <script type="text/javascript">
+        // 이름이 카멜 표시법으로 기술했으면 HTML에서는 - 표기법으로 변경한다
+        // compOne => comp-one
+        Vue.component('compOne', {              // 이름이 카멜표기법
+            template: '<div>'
+                + '<h3>Component One</h3>'
+                + '<div>Hello World</div>'
+                + '</div>'
+        });
+
+        Vue.component('comptwo', {              // 이름이 모두 소문자
+            template: `<div>
+                <h3>Component {{name}}</h3>
+                <div>Hi~~ World</div>
+            </div>`,
+            data: function(){
+                return {
+                    name: 'TWO'
+                }
+            }
+        });
         
+
+        var app = new Vue({
+            el: '#app'
+        });
     </script>
 </body>
 </html>
