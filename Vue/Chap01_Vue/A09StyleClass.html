@@ -23,19 +23,21 @@
         <div style="color: orange; font-size: 24pt;">{{hello}}</div>
         <div :style="{color: 'orange', fontSize: '24pt'}">{{hello}}</div>
         <div :style="styleOne" @mouseenter="changeEnter" @mouseleave="changeLeave">{{hello}}</div>      <!-- 아래와 같이 computed로 빼서 사용한다 -->
-        <div :style="styleTwo"  >{{hello}}</div>
+        <div :style="styleTwo">{{hello}}</div>
         <br>
 
         <h3>Class Binding</h3>
 
-        <div class="one">{{hello}}</div>
-        <div class="one">{{hello}}</div>
-        <div class="one">{{hello}}</div>
+        <div class="one" :class="['two', 'three']">{{hello}}</div>
+        <div class="one" :class="clzTwo">{{hello}}</div>
+        <div class="one" :class="[clzTwo, 'three']">{{hello}}</div>
         <br>
 
-        <div class="one">{{hello}}</div>
-        <div class="one">{{hello}}</div>
-        <input type="checkbox"> Check<br />
+        <!-- 문자 참조 방식만 가능-->
+        <div class="one" :class="{'two': true, 'three': true}">{{hello}}</div>
+        <div class="one" :class="{'two': true, 'three': false}">{{hello}}</div>
+        <div class="one" :class="{'two': true, 'three': isChecked}">{{hello}}</div>
+        <input type="checkbox" v-model="isChecked"> Check<br />
         <br>
 
         <input type="text" class="form-control" />
@@ -46,10 +48,12 @@
             el: '#app',
             data: {
                 hello: 'Hello World!!',
-                styleOne: {color: 'orange', fontSize: '24pt'}
+                styleOne: {color: 'orange', fontSize: '24pt'},
+                clzTwo: 'two',
+                isChecked: false,
             },
             computed: {
-                styleTwo: function(){       // 매개변수가 없음
+                styleTwo: function(){       // 매개변수가 없음. setter가 없음(값 설정 안됨)
                     return {color: 'lightblue', fontSize: '24pt'}
                 }
             },
