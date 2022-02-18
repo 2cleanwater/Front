@@ -21,8 +21,9 @@
         <h3>A09 Style Binding</h3>
 
         <div style="color: orange; font-size: 24pt;">{{hello}}</div>
-        <div>{{hello}}</div>
-        <div>{{hello}}</div>
+        <div :style="{color: 'orange', fontSize: '24pt'}">{{hello}}</div>
+        <div :style="styleOne" @mouseenter="changeEnter" @mouseleave="changeLeave">{{hello}}</div>      <!-- 아래와 같이 computed로 빼서 사용한다 -->
+        <div :style="styleTwo"  >{{hello}}</div>
         <br>
 
         <h3>Class Binding</h3>
@@ -45,12 +46,24 @@
             el: '#app',
             data: {
                 hello: 'Hello World!!',
+                styleOne: {color: 'orange', fontSize: '24pt'}
             },
             computed: {
-                
+                styleTwo: function(){       // 매개변수가 없음
+                    return {color: 'lightblue', fontSize: '24pt'}
+                }
             },
             methods: {
-                
+                changeEnter: function() {
+                    // this.styleOne.backgroundColor = 'lightgray';
+                    let data = {color: 'orange', fontSize: '24pt', backgroundColor: 'lightgray'};
+                    this.styleOne = data;
+                },
+                changeLeave: function() {
+                    // this.styleOne.backgroundColor = 'white'
+                    let data = {color: 'orange', fontSize: '24pt'};
+                    this.styleOne = data;
+                }
             }
         })
     </script>
