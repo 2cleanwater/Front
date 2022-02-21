@@ -3,11 +3,19 @@
         <h4>A04 Contacts</h4>
 
         <div>
-            <span></span>
+            <!-- 부모의 패스가 기본적으로 와야 한다 --> 
+            <router-link to="/A07ChildRouter">INFO</router-link> | 
+            <router-link to="/A07ChildRouter/way">WAY</router-link> | 
+            <span v-for="item in contacts" :key="item.no">
+                <router-link :to="'/A07ChildRouter/view/' + item.no">{{item.name}}</router-link> | 
+            </span>
         </div>
         <br />
 
-        <div></div>
+        <!-- 하위 컴퍼넌트가 표시될 영역을 지정한다 -->
+        <div>
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
