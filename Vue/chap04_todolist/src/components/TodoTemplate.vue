@@ -28,11 +28,15 @@ export default {
     methods: {
         updateTodo: function(id) {
             // console.log(id);
-            this.todoList[id].done = !this.todoList[id].done;
+            // this.todoList[id].done = !this.todoList[id].done;
+            const todo = this.todoList.find( item => item.id === id );
+            todo.done = !todo.done;
         },
         deleteTodo: function(id) {
             // console.log(id);
-            this.todoList.splice(id, 1);
+            // this.todoList.splice(id, 1);
+            const index = this.todoList.findIndex( item => item.id === id );
+            this.todoList.splice(index, 1);
         },
         addTodo: function(text){
             const todo = { id: this.id++, text, done: false};
