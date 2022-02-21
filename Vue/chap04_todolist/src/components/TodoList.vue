@@ -11,7 +11,9 @@
                 </tr>
             </thead>
             <tbody>
-                <TodoListItem v-for="(todo, index) in todoList" :key="todo.id" :todo="todo" :index="index"></TodoListItem>
+                <TodoListItem v-for="(todo, index) in todoList" 
+                    :key="todo.id" :todo="todo" :index="index"
+                    :updateTodo="updateTodo" :deleteTodo="deleteTodo"></TodoListItem>
             </tbody>
         </table>
     </div>
@@ -20,7 +22,7 @@
 <script>
     import TodoListItem from './TodoListItem.vue'
     export default {
-        props: ['todoList'],
+        props: ['todoList', "updateTodo", "deleteTodo"],
         components: { TodoListItem }
     }
 </script>

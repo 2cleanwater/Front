@@ -1,9 +1,9 @@
 <template>
     <div>
         <h3>TodoList</h3>
-        <TodoForm></TodoForm>
+        <TodoForm :addTodo="addTodo"></TodoForm>
         <hr>
-        <TodoList :todoList="todoList"></TodoList>
+        <TodoList :todoList="todoList" :updateTodo="updateTodo" :deleteTodo="deleteTodo"></TodoList>
     </div>    
 </template>
 
@@ -21,7 +21,22 @@ export default {
     components: { TodoForm, TodoList },
     data: function() {
         return {
-            todoList: todos
+            todoList: todos,
+            id: 5
+        }
+    },
+    methods: {
+        updateTodo: function(id) {
+            // console.log(id);
+            this.todoList[id].done = !this.todoList[id].done;
+        },
+        deleteTodo: function(id) {
+            // console.log(id);
+            this.todoList.splice(id, 1);
+        },
+        addTodo: function(text){
+            const todo = { id: this.id++, text, done: false};
+            this.todoList.push(todo);
         }
     }
 }
