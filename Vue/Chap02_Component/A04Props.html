@@ -34,7 +34,19 @@
         Vue.component('compOne', {
             template: '#tempOne',
             // 넘어오는 키 이름을 배열에 문자열로 정의한다.
-            props: ['name', 'age', 'add', 'user', 'arr', 'onPlus', 'isChecked'],
+            props: {
+                name: String,
+                age: {
+                    type: Number,
+                    default: 0,
+                    required: true
+                },
+                add: String,
+                user: Object,
+                arr: Array,
+                onPlus: Function,
+                isChecked: Boolean
+            },
             data: function(){
                 return {}
             },
