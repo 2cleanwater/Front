@@ -14,6 +14,8 @@
         <router-link to="/A06Query?id=1006&name=Hungbu&address=Seoul#TOP">A06Query</router-link> | 
 
         <router-link to="/A07ChildRouter">A07ChildRouter</router-link> | 
+        <router-link to="/A08Push">A08Push</router-link> | 
+        <router-link to="/ABC">ABC</router-link> | 
       </div>
 
       <hr>
@@ -38,6 +40,8 @@ import A06Query from './components/A06Query.vue'
 import A07ChildRouter from './components/A07ChildRouter.vue'
 import CompanyInfo from './components/childComponent/CompanyInfo.vue'
 import CompanyWay from './components/childComponent/CompanyWay.vue'
+import A08Push from './components/A08Push.vue'
+import A09NotFound from './components/A09NotFound.vue'
 
 const router = new VueRouter({
   routes: [
@@ -50,7 +54,11 @@ const router = new VueRouter({
     { path: "/A06Query",                  component: A06Query },
     { path: "/A07ChildRouter",            component: A07ChildRouter,
         children: [
-          // 상대패스로 지정
+          /*
+            상대패스로 지정 => 이름에 / 가 붙지 않는다.
+            / 가 없으면 "부모 패스/상대패스 이름" 형태로 참조된다.
+            패스가 없이 '' 형태로 기술되면 부모 패스가 선택된 경우 default로 해당 컴퍼넌트가 표시됨
+          */
           { path: '',             component: CompanyInfo},  //    /A07ChildRouter
           { path: 'way',          component: CompanyWay},   //    /A07ChildRouter/way
 
@@ -58,6 +66,8 @@ const router = new VueRouter({
           { path: '/A07ChildRouter/view/:id',   component: A05ContactView }
         ]
     },
+    { path: '/A08Push',                 component: A08Push },
+    { path: '/*',                 component: A09NotFound }
   ],
 })
 
