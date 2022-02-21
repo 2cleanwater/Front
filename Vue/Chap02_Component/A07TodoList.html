@@ -65,8 +65,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in todoList" :key="item.id">
-                        <td>{{item.id}}</td>
+                    <tr v-for="(item, index) in todoList" :key="item.id">
+                        <td>{{index + 1}}</td>
                         <td><span :class="{done: item.done}">{{item.text}}</span></td>
                         <td><button class="btn btn-primary" @click="updateTodo(item.id)">Complete</button></td>
                         <td><button class="btn btn-danger"  @click="deleteTodo(item.id)">Delete</button></td>
@@ -89,7 +89,7 @@
                 }
             },
             created: function() {
-                EventBus.$on('sendtext', this.addTodo)
+                EventBus.$on('sendtext', this.addTodo);
             },
             methods: {
                 updateTodo: function(id) {
