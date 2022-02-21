@@ -24,8 +24,8 @@
             <div class="input-group">
                 <input type="text" class="form-control" ref="txtField">
                 <div class="input-group-append">
-                    <button class="btn btn-primary">SEND TEXT</button>
-                    <button class="btn btn-danger">SEND OBJECT</button>
+                    <button class="btn btn-primary" @click="sendText">SEND TEXT</button>
+                    <button class="btn btn-danger"  @click="sendObject">SEND OBJECT</button>
                 </div>
             </div>
         </div>
@@ -40,21 +40,31 @@
                 }
             },
             methods: {
-                
+                sendText: function() {
+                    this.$emit('sendtext', this.$refs.txtField.value);
+                },
+                sendObject: function(){
+                    const obj = {
+                        msg: this.$refs.txtField.value,
+                        title: this.title,
+                        user: this.user
+                    }
+                    this.$emit('sendobject', obj);
+                }
             }
         });
     </script>
 
     <template id="parentTemp">
         <div>
-            <child-comp></child-comp>
+            <child-comp @sendtext="getText" @sendobject="getObject"></child-comp>
             <hr>
             <h4>Parent Component</h4>
             <div>Message: {{msg}}</div>
             <div>
-                Message: <br>
-                Title: <br>
-                User: 
+                Message: {{data.msg}}<br>
+                Title: {{data.title}}<br>
+                User: {{data.user.name}} / {{data.user.age}}
             </div>
         </div>
     </template>
@@ -64,11 +74,18 @@
             data: function(){
                 return {
                     msg: '',
-                    data: null,
+                    data: {msg: '', title: '', user: {}},
                 }
             },
             methods: {
-                
+                getText: function(evt) {
+                    console.log(evt);
+                    this.msg = evt;
+                },
+                getObject(evt) {
+                    console.log(evt);
+                    this.data = evt;
+                }
             }
         })
     </script>
