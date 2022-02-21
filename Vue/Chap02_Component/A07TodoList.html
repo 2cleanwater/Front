@@ -27,9 +27,9 @@
     <template id="todoForm">
         <form>
             <div class="input-group">
-                <input type="text" class="form-control"/>
+                <input type="text" class="form-control" v-model="text" ref="txtField" />
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary mr-1">Submit</button>
+                    <button type="submit" class="btn btn-primary mr-1" @click.prevent="sendData">Submit</button>
                 </div>
             </div>  
         </form>
@@ -37,7 +37,18 @@
     <script type="text/javascript">
         Vue.component('formComp', {
             template: '#todoForm',
-            
+            data: function() {
+                return {
+                    text: ''
+                }
+            },
+            methods: {
+                sendData: function() {
+                    EventBus.$emit('sendtext', this.text);
+                    this.$refs.txtField.value = '';
+                    this.$refs.txtField.focus();
+                }
+            }
         });
     </script>
 
@@ -76,6 +87,9 @@
                     ],
                     id: 4,
                 }
+            },
+            created: function() {
+                EventBus.$on('sendtext', this.addTodo)
             },
             methods: {
                 updateTodo: function(id) {
